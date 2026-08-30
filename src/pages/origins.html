@@ -1,0 +1,355 @@
+  <section>
+    <div class="wrap split">
+      <div class="prose">
+        <p class="eyebrow">1936</p>
+        <h2 class="section-title">A machine made of paper</h2>
+        <p>Artificial intelligence begins before computers existed &mdash; with a 24-year-old
+          mathematician trying to settle an argument about the limits of mathematics.</p>
+        <p>In 1936, <strong>Alan Turing</strong> imagined a device so simple it sounds useless: an
+          endless paper tape divided into squares, a head that can read one square at a time, and a
+          small table of instructions telling it what to write and which way to move. That is the
+          whole machine. No screen, no keyboard, no memory chips.</p>
+        <p>Turing then proved something startling. Any calculation that a human being can carry out
+          by following a fixed procedure &mdash; long division, sorting a list, checking a proof
+          &mdash; can be carried out by that tape-and-head device. And a single &ldquo;universal&rdquo;
+          version of it, given a description of any other such machine, can imitate it exactly.</p>
+        <p>That is the idea behind every computer you have ever used: <strong>one piece of hardware
+          that becomes any program you feed it</strong>. It is also the first serious reason to
+          suspect that thinking might be something a machine could do, if thinking turns out to be
+          a procedure.</p>
+
+        <div class="callout">
+          <h4>Why this matters for AI</h4>
+          <p>If mental work is <em>computation</em>, then a universal machine can in principle do it.
+            The entire field rests on that &ldquo;if&rdquo;. Seventy years of argument have not
+            settled whether it is true &mdash; only how far you can get by assuming it.</p>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:0">
+        <div class="figure-body">
+          <svg viewBox="0 0 440 250" role="img" aria-labelledby="tm-title tm-desc" style="width:100%;height:auto">
+            <title id="tm-title">A Turing machine</title>
+            <desc id="tm-desc">A paper tape of squares containing symbols, with a read-write head above the middle square connected to a box labelled state and rule table.</desc>
+            <g font-family="Helvetica,Arial">
+              <rect x="30" y="150" width="380" height="52" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <g stroke="#0A0A0A" stroke-width="2">
+                <line x1="78" y1="150" x2="78" y2="202"></line>
+                <line x1="126" y1="150" x2="126" y2="202"></line>
+                <line x1="174" y1="150" x2="174" y2="202"></line>
+                <line x1="222" y1="150" x2="222" y2="202"></line>
+                <line x1="270" y1="150" x2="270" y2="202"></line>
+                <line x1="318" y1="150" x2="318" y2="202"></line>
+                <line x1="366" y1="150" x2="366" y2="202"></line>
+              </g>
+              <rect x="174" y="150" width="48" height="52" fill="#FFF1F1"></rect>
+              <g font-size="18" text-anchor="middle" fill="#0A0A0A">
+                <text x="54" y="184">1</text><text x="102" y="184">0</text>
+                <text x="150" y="184">1</text><text x="198" y="184" fill="#FF0000" font-weight="bold">1</text>
+                <text x="246" y="184">0</text><text x="294" y="184">0</text>
+                <text x="342" y="184">1</text><text x="390" y="184">&nbsp;</text>
+              </g>
+              <text x="30" y="222" font-size="11" fill="#5C5C5C">&larr; infinite tape &rarr;</text>
+
+              <rect x="148" y="40" width="100" height="60" fill="#0A0A0A"></rect>
+              <text x="198" y="66" text-anchor="middle" font-size="12" fill="#fff">STATE</text>
+              <text x="198" y="84" text-anchor="middle" font-size="12" fill="#FF0000" font-weight="bold">q7</text>
+              <line x1="198" y1="100" x2="198" y2="138" stroke="#FF0000" stroke-width="3"></line>
+              <polygon points="198,150 190,134 206,134" fill="#FF0000"></polygon>
+              <text x="258" y="72" font-size="11.5" fill="#0A0A0A">read &middot; write &middot; move</text>
+
+              <rect x="300" y="30" width="120" height="80" fill="#fff" stroke="#0A0A0A" stroke-width="2" stroke-dasharray="4 4"></rect>
+              <text x="360" y="52" text-anchor="middle" font-size="11" font-weight="bold" fill="#0A0A0A">RULE TABLE</text>
+              <text x="360" y="72" text-anchor="middle" font-size="10.5" fill="#5C5C5C">q7, 1 &rarr; write 0,</text>
+              <text x="360" y="88" text-anchor="middle" font-size="10.5" fill="#5C5C5C">move right, go q3</text>
+              <line x1="300" y1="70" x2="252" y2="70" stroke="#0A0A0A" stroke-width="1.5"></line>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>The whole computer, 1936.</b> A tape, a head, a table of rules. Turing proved
+          that a single universal version of this can imitate any other &mdash; the reason software
+          exists at all.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="tinted">
+    <div class="wrap">
+      <p class="eyebrow">1943 &ndash; 1949</p>
+      <h2 class="section-title">Three ideas arrive at once</h2>
+      <p class="lede">Between the war and the first computers, four separate research communities
+        each produced a piece of the puzzle. None of them called it artificial intelligence.</p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th style="width:14%">Year</th><th style="width:26%">Idea</th><th style="width:22%">Who</th><th>What it contributed</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1943</strong></td>
+              <td>The artificial neuron</td>
+              <td>Warren McCulloch, Walter Pitts</td>
+              <td>A brain cell modelled as a tiny logic gate: add up the incoming signals, and fire only if the total crosses a threshold. Networks of these, they showed, can compute any logical function. Every neural network alive today is a descendant of this one-page idea.</td>
+            </tr>
+            <tr>
+              <td><strong>1948</strong></td>
+              <td>Information theory</td>
+              <td>Claude Shannon</td>
+              <td>Proved that <em>information</em> is a measurable quantity, gave it a unit (the bit), and showed how much of it a noisy channel can carry. It turned messages, images and text into the same kind of thing: numbers a machine can process.</td>
+            </tr>
+            <tr>
+              <td><strong>1948</strong></td>
+              <td>Cybernetics</td>
+              <td>Norbert Wiener</td>
+              <td>Studied <em>feedback</em>: systems that sense their own output and correct course &mdash; a thermostat, a gun turret, an animal reaching for food. It made &ldquo;goal-directed behaviour&rdquo; something you could engineer rather than something only living things had.</td>
+            </tr>
+            <tr>
+              <td><strong>1949</strong></td>
+              <td>A rule for learning</td>
+              <td>Donald Hebb</td>
+              <td>Proposed that when two neurons fire together repeatedly, the connection between them strengthens &mdash; usually shortened to <em>&ldquo;cells that fire together, wire together&rdquo;</em>. It gave a physical account of how experience could change a network. Learning became adjustable connection strengths.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="figure">
+        <div class="figure-body">
+          <svg viewBox="0 0 700 220" role="img" aria-labelledby="neuron-title neuron-desc" style="width:100%;height:auto">
+            <title id="neuron-title">The McCulloch and Pitts artificial neuron</title>
+            <desc id="neuron-desc">Three weighted inputs feed into a summing node, which passes the total through a threshold to produce an output of one or zero.</desc>
+            <g font-family="Helvetica,Arial">
+              <g font-size="13" fill="#0A0A0A">
+                <circle cx="60" cy="55" r="18" fill="#fff" stroke="#0A0A0A" stroke-width="2"></circle>
+                <text x="60" y="60" text-anchor="middle">x&#8321;</text>
+                <circle cx="60" cy="110" r="18" fill="#fff" stroke="#0A0A0A" stroke-width="2"></circle>
+                <text x="60" y="115" text-anchor="middle">x&#8322;</text>
+                <circle cx="60" cy="165" r="18" fill="#fff" stroke="#0A0A0A" stroke-width="2"></circle>
+                <text x="60" y="170" text-anchor="middle">x&#8323;</text>
+              </g>
+              <g stroke="#0A0A0A" stroke-width="2" fill="none">
+                <line x1="78" y1="55" x2="255" y2="103"></line>
+                <line x1="78" y1="110" x2="255" y2="110"></line>
+                <line x1="78" y1="165" x2="255" y2="117"></line>
+              </g>
+              <g font-size="12" fill="#FF0000" font-weight="bold">
+                <text x="150" y="66">w&#8321; = 0.7</text>
+                <text x="150" y="103">w&#8322; = &minus;0.4</text>
+                <text x="150" y="163">w&#8323; = 0.9</text>
+              </g>
+              <circle cx="290" cy="110" r="35" fill="#0A0A0A"></circle>
+              <text x="290" y="118" text-anchor="middle" font-size="24" fill="#fff">&Sigma;</text>
+              <text x="290" y="168" text-anchor="middle" font-size="11" fill="#5C5C5C">add it all up</text>
+              <line x1="325" y1="110" x2="405" y2="110" stroke="#0A0A0A" stroke-width="2"></line>
+              <polygon points="415,110 401,104 401,116" fill="#0A0A0A"></polygon>
+              <rect x="415" y="70" width="110" height="80" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <polyline points="432,138 470,138 470,88 508,88" fill="none" stroke="#FF0000" stroke-width="3"></polyline>
+              <text x="470" y="62" text-anchor="middle" font-size="11" font-weight="bold" fill="#0A0A0A">THRESHOLD</text>
+              <text x="470" y="168" text-anchor="middle" font-size="11" fill="#5C5C5C">over the line? fire.</text>
+              <line x1="525" y1="110" x2="600" y2="110" stroke="#0A0A0A" stroke-width="2"></line>
+              <polygon points="610,110 596,104 596,116" fill="#0A0A0A"></polygon>
+              <rect x="612" y="90" width="60" height="40" fill="#FF0000"></rect>
+              <text x="642" y="117" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">1 / 0</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>1943, and still in use.</b> Multiply each input by a weight, add them up, fire
+          if the total passes a threshold. A modern language model is roughly a trillion of these,
+          stacked and wired together &mdash; the unit itself has barely changed.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <p class="eyebrow">1950</p>
+      <h2 class="section-title">The question, and the trick for answering it</h2>
+      <p>In October 1950 Turing published <em>Computing Machinery and Intelligence</em> in the
+        philosophy journal <em>Mind</em>. It opens with the sentence &ldquo;I propose to consider
+        the question, &lsquo;Can machines think?&rsquo;&rdquo; &mdash; and then, in the next
+        paragraph, throws that question away.</p>
+      <p>His reason was practical. &ldquo;Think&rdquo; and &ldquo;machine&rdquo; are words whose
+        ordinary meanings would have to be settled by opinion poll, and a poll is not science.
+        So he replaced the question with a game.</p>
+
+      <blockquote>
+        <p>May not machines carry out something which ought to be described as thinking but which is
+          very different from what a man does?</p>
+        <cite>Alan Turing, 1950</cite>
+      </blockquote>
+
+      <h3>The imitation game</h3>
+      <p>A human judge sits at a terminal and holds two text conversations at once: one with a
+        person, one with a machine. The judge cannot see or hear either. Their job is to work out
+        which is which. If the judge cannot do better than chance, Turing argued, we have no
+        principled reason left to deny the machine the word &ldquo;thinking&rdquo;.</p>
+      <p>The design is deliberately cruel to the machine and generous to the human. Text only, so
+        no advantage from a body or a voice. Any topic at all, so no narrow domain to hide in. The
+        judge is actively trying to catch it out.</p>
+
+      <figure class="figure">
+        <div class="figure-body">
+          <svg viewBox="0 0 640 260" role="img" aria-labelledby="tt-title tt-desc" style="width:100%;height:auto">
+            <title id="tt-title">The imitation game</title>
+            <desc id="tt-desc">A judge in a room exchanges text with two hidden participants, a human and a machine, and must decide which is which.</desc>
+            <g font-family="Helvetica,Arial">
+              <rect x="20" y="70" width="150" height="110" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <circle cx="95" cy="112" r="20" fill="#0A0A0A"></circle>
+              <path d="M70 152 q25 -26 50 0" fill="#0A0A0A"></path>
+              <text x="95" y="173" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">JUDGE</text>
+              <text x="95" y="202" text-anchor="middle" font-size="11" fill="#5C5C5C">sees only text</text>
+
+              <line x1="240" y1="30" x2="240" y2="230" stroke="#FF0000" stroke-width="4" stroke-dasharray="10 6"></line>
+              <text x="240" y="20" text-anchor="middle" font-size="11" font-weight="bold" fill="#FF0000">SCREEN</text>
+
+              <g stroke="#0A0A0A" stroke-width="2">
+                <line x1="170" y1="105" x2="380" y2="70"></line>
+                <line x1="170" y1="145" x2="380" y2="180"></line>
+              </g>
+              <rect x="200" y="88" width="80" height="20" fill="#fff"></rect>
+              <text x="240" y="103" text-anchor="middle" font-size="11" fill="#5C5C5C">questions</text>
+              <rect x="200" y="152" width="80" height="20" fill="#fff"></rect>
+              <text x="240" y="167" text-anchor="middle" font-size="11" fill="#5C5C5C">answers</text>
+
+              <rect x="385" y="35" width="150" height="80" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <circle cx="425" cy="70" r="16" fill="#0A0A0A"></circle>
+              <path d="M405 104 q20 -22 40 0" fill="#0A0A0A"></path>
+              <text x="500" y="76" text-anchor="middle" font-size="13" font-weight="bold" fill="#0A0A0A">HUMAN</text>
+
+              <rect x="385" y="140" width="150" height="80" fill="#fff" stroke="#FF0000" stroke-width="2"></rect>
+              <rect x="408" y="160" width="36" height="36" fill="#FF0000"></rect>
+              <rect x="416" y="170" width="8" height="8" fill="#fff"></rect>
+              <rect x="430" y="170" width="8" height="8" fill="#fff"></rect>
+              <rect x="416" y="184" width="22" height="5" fill="#fff"></rect>
+              <text x="500" y="181" text-anchor="middle" font-size="13" font-weight="bold" fill="#FF0000">MACHINE</text>
+
+              <text x="555" y="130" font-size="11.5" fill="#5C5C5C">Which is which?</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>The test that replaced the question.</b> Turing did not claim passing it proves
+          consciousness. He claimed that if we cannot tell, our reasons for refusing the word
+          &ldquo;thinking&rdquo; are no longer reasons &mdash; they are just prejudice.</figcaption>
+      </figure>
+
+      <h3>The objections he answered in advance</h3>
+      <p>Most of the paper is Turing pre-emptively demolishing nine objections. They are still the
+        objections people raise today:</p>
+      <ul>
+        <li><strong>The theological objection</strong> &mdash; thinking requires a soul. Turing
+          answers, drily, that this places limits on God&rsquo;s power to grant one.</li>
+        <li><strong>&ldquo;Machines can only do what we tell them.&rdquo;</strong> Turing points out
+          that he is routinely surprised by his own programs, and that a machine which learns will
+          do things its programmer never specified.</li>
+        <li><strong>Lady Lovelace&rsquo;s objection</strong> &mdash; machines cannot originate
+          anything. He replies that neither, arguably, do people: we recombine what we were taught.</li>
+        <li><strong>The argument from consciousness</strong> &mdash; the machine does not <em>feel</em>
+          anything. Turing notes that the only way to be sure any <em>person</em> feels anything is to
+          be that person, and we do not normally let this stop us.</li>
+      </ul>
+      <p>He also made a prediction: by the year 2000, a machine would fool an average judge 30% of
+        the time in a five-minute conversation. He was roughly two decades early &mdash; but he was
+        right that it would happen, and right about which approach would get there
+        (&ldquo;child machines&rdquo; that learn, rather than adults programmed with rules).</p>
+
+      <div class="note">
+        <p><strong>A cost worth naming.</strong> In 1952 Turing was prosecuted for homosexuality,
+          then a crime in Britain, and sentenced to chemical castration. He lost his security
+          clearance. He died in 1954, aged 41, from cyanide poisoning &mdash; ruled a suicide. He
+          never saw a single one of his predictions tested. The British government apologised in
+          2009 and granted a posthumous pardon in 2013.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="inked">
+    <div class="wrap">
+      <p class="eyebrow">Summer 1956</p>
+      <h2 class="section-title">Dartmouth: a field gets a name</h2>
+      <div class="split" style="margin-top:2rem">
+        <div class="prose">
+          <p>In 1955 a young mathematician named <strong>John McCarthy</strong> wrote a funding
+            proposal to the Rockefeller Foundation with <strong>Marvin Minsky</strong>,
+            <strong>Nathaniel Rochester</strong> of IBM and <strong>Claude Shannon</strong>. They
+            asked for money to bring ten people to Dartmouth College for eight weeks. The proposal
+            contains what is probably the most confident sentence in the history of computing:</p>
+
+          <blockquote style="border-left-color:#FF0000">
+            <p style="color:#fff">The study is to proceed on the basis of the conjecture that every
+              aspect of learning or any other feature of intelligence can in principle be so
+              precisely described that a machine can be made to simulate it.</p>
+            <cite>Dartmouth proposal, 31 August 1955</cite>
+          </blockquote>
+
+          <p>McCarthy needed a label for the topic. &ldquo;Cybernetics&rdquo; was taken and came with
+            Wiener attached. &ldquo;Automata studies&rdquo; sounded dull and had not attracted the
+            papers he wanted. So he coined <strong>artificial intelligence</strong> &mdash; partly,
+            he later admitted, because it was vague enough that nobody could object that their work
+            did not fit.</p>
+
+          <p>The workshop itself was a partial failure as an event. People arrived and left at
+            different times, there was no fixed agenda, and no consensus emerged. But the group that
+            passed through that summer &mdash; McCarthy, Minsky, Newell, Simon, Shannon, Samuel,
+            Solomonoff &mdash; went on to run essentially every major AI laboratory in the United
+            States for the next twenty years.</p>
+        </div>
+
+        <div>
+          <div class="tl" style="margin-top:0">
+            <div class="tl-item">
+              <span class="yr">1950</span>
+              <h3>Shannon programs chess</h3>
+              <p>Shannon publishes the first serious paper on computer chess, introducing the idea of
+                scoring a board position and searching ahead a fixed number of moves.</p>
+            </div>
+            <div class="tl-item">
+              <span class="yr">1951</span>
+              <h3>SNARC, the first neural machine</h3>
+              <p>Minsky and Dean Edmonds build a 40-neuron machine out of vacuum tubes and surplus
+                bomber parts. It learns to run a maze by strengthening connections that worked.</p>
+            </div>
+            <div class="tl-item">
+              <span class="yr">1955</span>
+              <h3>Logic Theorist</h3>
+              <p>Allen Newell, Herbert Simon and Cliff Shaw write a program that proves theorems from
+                <em>Principia Mathematica</em> &mdash; and finds a proof shorter and more elegant than
+                the book&rsquo;s. The journal editor declined to publish it with a computer as co-author.</p>
+            </div>
+            <div class="tl-item">
+              <span class="yr">1956</span>
+              <h3>The Dartmouth workshop</h3>
+              <p>Ten researchers, eight weeks, one new name. Logic Theorist is demonstrated. Nothing is
+                concluded &mdash; but everyone leaves believing the problem is tractable.</p>
+            </div>
+            <div class="tl-item" style="padding-bottom:0">
+              <span class="yr">1957</span>
+              <h3>The perceptron</h3>
+              <p>Frank Rosenblatt builds a machine that learns to classify images by adjusting its own
+                weights. The <em>New York Times</em> reports it is the embryo of a computer that will
+                walk, talk, see and reproduce itself.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2 class="section-title">What the founders got right and wrong</h2>
+      <p><strong>Right:</strong> that intelligence could be studied as an engineering problem rather
+        than a philosophical one. That search, learning and representation would be the core
+        technical questions &mdash; they still are. That machines would eventually hold a fluent
+        conversation.</p>
+      <p><strong>Wrong:</strong> the timeline, by a factor of roughly ten. And, more deeply, the
+        assumption that the hard part of intelligence is the part that <em>feels</em> hard to us.
+        Chess and theorem-proving fell early. Recognising a face, picking up a cup, understanding a
+        sentence in context &mdash; things a four-year-old does without effort &mdash; took another
+        fifty years. This became known as <strong>Moravec&rsquo;s paradox</strong>: the tasks
+        evolution spent millions of years perfecting are the ones we find hardest to reproduce,
+        precisely because they feel effortless and we have no idea how we do them.</p>
+      <p>That misjudgement set up everything in the next chapter: a decade of spectacular early
+        results, followed by a wall.</p>
+    </div>
+  </section>

@@ -1,0 +1,251 @@
+  <section>
+    <div class="wrap prose">
+      <p class="eyebrow">A warning before we start</p>
+      <h2 class="section-title">The field&rsquo;s forecasting record is terrible</h2>
+      <p>Everything on this page should be read against the previous chapters. Simon said twenty
+        years in 1965. Minsky said a generation in 1967. Both were among the most capable people
+        who have ever worked on this problem, and both were wrong by a wide margin.</p>
+      <p>Then the correction over-corrected. Experts in 2015 put a machine beating a top Go
+        professional a decade away; it took months. Serious people in 2020 argued that fluent,
+        general-purpose conversation with a machine was far off; it shipped in 2022.</p>
+      <p>The honest summary is that <strong>nobody, including the people building these systems, has
+        demonstrated an ability to predict AI progress</strong>. That cuts both ways: it is a reason
+        to discount confident forecasts of imminent superintelligence <em>and</em> confident
+        forecasts that current methods are about to stall.</p>
+    </div>
+  </section>
+
+  <section class="tinted">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="eyebrow">The word everyone uses differently</p>
+        <h2 class="section-title">What would &ldquo;AGI&rdquo; even mean?</h2>
+        <p>Artificial general intelligence has at least four working definitions in circulation, and
+          most public disagreements are really definitional disputes wearing a disguise.</p>
+        <ul>
+          <li><strong>The economic definition.</strong> A system that can perform most economically
+            valuable work at or above human level. Measurable, but it makes AGI a fact about labour
+            markets and deployment rather than about cognition.</li>
+          <li><strong>The capability definition.</strong> A system that matches or exceeds human
+            performance across essentially all cognitive tasks, including ones it was never trained
+            on. Closer to the intuition; hard to test, because &ldquo;all tasks&rdquo; has no
+            enumeration.</li>
+          <li><strong>The autonomy definition.</strong> A system that can set its own goals, learn
+            continuously from experience, and operate over long horizons without human scaffolding.
+            Current systems are notably weak here, and it may be the most consequential axis.</li>
+          <li><strong>The phenomenal definition.</strong> A system that genuinely understands and
+            experiences. We have no agreed test for this in machines, and no fully agreed account of
+            it in humans.</li>
+        </ul>
+        <p>When someone says AGI is five years away and someone else says fifty, check which
+          definition each is using before assuming they disagree about anything factual.</p>
+
+        <div class="callout">
+          <h4>The moving goalposts, in both directions</h4>
+          <p>Every time a task falls, it stops counting. Chess, then translation, then Go, then
+            passing professional exams, then holding an open-ended conversation &mdash; each was
+            once <em>the</em> test of machine intelligence and is now &ldquo;just search&rdquo; or
+            &ldquo;just statistics&rdquo;. That reflex is sometimes wisdom and sometimes denial. The
+            useful discipline is to write down in advance what would change your mind.</p>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:0">
+        <div class="figure-body">
+          <svg viewBox="0 0 420 400" role="img" aria-labelledby="quad-title quad-desc" style="width:100%;height:auto">
+            <title id="quad-title">Four positions on where AI is heading</title>
+            <desc id="quad-desc">A two-by-two grid. The horizontal axis runs from "current methods are enough" to "something fundamental is missing". The vertical axis runs from "outcome likely good" to "outcome likely bad".</desc>
+            <g font-family="Helvetica,Arial">
+              <rect x="60" y="40" width="150" height="150" fill="#FAFAFA" stroke="#D8D8D8" stroke-width="1.5"></rect>
+              <rect x="210" y="40" width="150" height="150" fill="#FAFAFA" stroke="#D8D8D8" stroke-width="1.5"></rect>
+              <rect x="60" y="190" width="150" height="150" fill="#FFF1F1" stroke="#D8D8D8" stroke-width="1.5"></rect>
+              <rect x="210" y="190" width="150" height="150" fill="#FAFAFA" stroke="#D8D8D8" stroke-width="1.5"></rect>
+
+              <text x="135" y="72" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0A0A0A">ACCELERATIONIST</text>
+              <text x="135" y="94" text-anchor="middle" font-size="10.5" fill="#5C5C5C">Scaling works. Build fast;</text>
+              <text x="135" y="109" text-anchor="middle" font-size="10.5" fill="#5C5C5C">the upside is enormous</text>
+              <text x="135" y="124" text-anchor="middle" font-size="10.5" fill="#5C5C5C">and delay has costs too.</text>
+
+              <text x="285" y="72" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0A0A0A">SCEPTIC</text>
+              <text x="285" y="94" text-anchor="middle" font-size="10.5" fill="#5C5C5C">Useful tools, real limits.</text>
+              <text x="285" y="109" text-anchor="middle" font-size="10.5" fill="#5C5C5C">Another plateau is coming;</text>
+              <text x="285" y="124" text-anchor="middle" font-size="10.5" fill="#5C5C5C">the panic is overblown.</text>
+
+              <text x="135" y="222" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FF0000">SAFETY-FIRST</text>
+              <text x="135" y="244" text-anchor="middle" font-size="10.5" fill="#5C5C5C">Scaling works, and that</text>
+              <text x="135" y="259" text-anchor="middle" font-size="10.5" fill="#5C5C5C">is the problem. Slow down</text>
+              <text x="135" y="274" text-anchor="middle" font-size="10.5" fill="#5C5C5C">until we can verify.</text>
+
+              <text x="285" y="222" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0A0A0A">CRITICAL</text>
+              <text x="285" y="244" text-anchor="middle" font-size="10.5" fill="#5C5C5C">No mind is arriving, but</text>
+              <text x="285" y="259" text-anchor="middle" font-size="10.5" fill="#5C5C5C">these systems still cause</text>
+              <text x="285" y="274" text-anchor="middle" font-size="10.5" fill="#5C5C5C">harm right now.</text>
+
+              <line x1="60" y1="190" x2="360" y2="190" stroke="#0A0A0A" stroke-width="2.5"></line>
+              <line x1="210" y1="40" x2="210" y2="340" stroke="#0A0A0A" stroke-width="2.5"></line>
+
+              <text x="210" y="26" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#8C8C8C">OUTCOME LIKELY GOOD</text>
+              <text x="210" y="362" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#8C8C8C">OUTCOME LIKELY BAD</text>
+              <text x="30" y="190" font-size="10.5" font-weight="bold" fill="#8C8C8C" transform="rotate(-90 30 190)" text-anchor="middle">SCALING IS ENOUGH</text>
+              <text x="396" y="190" font-size="10.5" font-weight="bold" fill="#8C8C8C" transform="rotate(90 396 190)" text-anchor="middle">SOMETHING IS MISSING</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Two questions, not one.</b> &ldquo;Will it keep working?&rdquo; and
+          &ldquo;would that be good?&rdquo; are independent. Most public arguments collapse them,
+          which is why people who agree on the facts still shout at each other.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The technical question</p>
+      <h2 class="section-title">Does scaling keep working?</h2>
+      <div class="grid grid-2" style="margin-top:2.5rem">
+        <div class="card">
+          <span class="card-num">The case for &ldquo;yes&rdquo;</span>
+          <h3>It has not stopped yet</h3>
+          <p>Scaling laws have held across many orders of magnitude &mdash; longer than most people
+            expected. Capabilities that were not designed in, like learning a task from three
+            examples in a prompt, appeared with size.</p>
+          <p>And the remaining headroom is not only in parameters. Inference-time compute opened a
+            second axis: letting a model reason for longer improves hard-problem performance without
+            a bigger model at all. Synthetic data, better training recipes, tool use and
+            multi-agent structures are all lines that have not been exhausted.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">The case for &ldquo;walls ahead&rdquo;</span>
+          <h3>Four constraints, all real</h3>
+          <p><strong>Data.</strong> Frontier models already train on a large fraction of the
+            high-quality public text that exists. Several analyses suggest that supply becomes
+            binding within years. Training on model output risks degradation.</p>
+          <p><strong>Energy and money.</strong> Each generation costs several times the last. Data
+            centre power demand is now a factor in national grid planning. Exponential input for
+            logarithmic output eventually stops being worth it.</p>
+          <p><strong>Reliability.</strong> Going from 95% to 99.9% correct is far harder than
+            reaching 95%, and many valuable applications need the second number.</p>
+          <p><strong>Missing capabilities.</strong> Continual learning, robust long-horizon planning
+            and genuine causal reasoning are weak, and it is not obvious that scale alone fixes
+            them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="inked">
+    <div class="wrap prose">
+      <p class="eyebrow">The philosophical question</p>
+      <h2 class="section-title">Is anybody home?</h2>
+      <p>In 1980 John Searle proposed the <strong>Chinese Room</strong>. Imagine yourself locked in a
+        room with an enormous rulebook. Chinese characters come under the door; you look them up,
+        follow the rules, and pass characters back. To someone outside, the room speaks fluent
+        Chinese. You understand nothing. Searle&rsquo;s point: symbol manipulation, however perfect,
+        is not comprehension.</p>
+      <p>The standard reply is the <em>systems reply</em> &mdash; you do not understand Chinese, but
+        the room as a whole might. Searle finds this absurd; many philosophers do not. Forty-five
+        years later the argument is unresolved, and modern language models make it concrete rather
+        than academic.</p>
+
+      <div class="grid grid-2" style="margin-top:2rem">
+        <div class="card" style="background:#141414;border-color:#3A3A3A">
+          <span class="card-num">&ldquo;It is a very good room&rdquo;</span>
+          <h3>Stochastic parrots</h3>
+          <p style="color:#CFCFCF">Bender, Gebru and colleagues argued in 2021 that a language model
+            is a system for stitching together sequences of linguistic form it has observed,
+            according to probability, without any reference to meaning &mdash; a parrot with
+            statistics.</p>
+          <p style="color:#CFCFCF">Supporting evidence: models assert falsehoods with total
+            confidence, fail at simple tasks requiring a physical model of the world, are sensitive
+            to irrelevant rephrasing, and can be led into contradicting themselves within a page.</p>
+        </div>
+        <div class="card" style="background:#141414;border-color:#3A3A3A">
+          <span class="card-num">&ldquo;Something more is happening&rdquo;</span>
+          <h3>Learned world models</h3>
+          <p style="color:#CFCFCF">The counter-argument is that predicting text well enough, across
+            enough of it, requires building internal structure that <em>represents</em> what the text
+            is about &mdash; you cannot reliably continue a description of a chess position without
+            something that tracks the board.</p>
+          <p style="color:#CFCFCF">Supporting evidence: interpretability work has found internal
+            representations of board states, spatial layouts and abstract features inside models
+            trained only to predict tokens. Models solve genuinely novel problems that cannot be
+            retrieved from training data.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:2rem">The most defensible position may be that the question is badly
+        posed. &ldquo;Understanding&rdquo; is not one property that a system has or lacks. These
+        systems have some of what we mean by it &mdash; robust internal representations, reliable
+        generalisation &mdash; and clearly lack others &mdash; grounding in a body, continuous
+        memory, stakes, a self that persists between conversations. Insisting on a yes/no answer may
+        be the actual error.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2 class="section-title">Work: the change that is already measurable</h2>
+      <p>Two centuries of automation offer a consistent pattern: technology destroys specific tasks
+        rather than whole occupations, productivity rises, new work appears &mdash; and the
+        transition is painful and unevenly distributed for the people caught in it. Whether AI
+        follows that pattern is unsettled; two features are genuinely new.</p>
+      <ul>
+        <li><strong>It targets cognitive and creative work.</strong> Previous automation waves hit
+          physical and routine clerical tasks. This one lands on writing, illustration, translation,
+          coding, analysis, customer support &mdash; work that was assumed to be the safe destination
+          for displaced workers.</li>
+        <li><strong>The speed.</strong> Mechanised weaving spread over decades. A capable model
+          reaches hundreds of millions of people in months. Retraining, education and labour
+          protections move on the slower timescale.</li>
+      </ul>
+      <p>The most consistent early finding across studies is <em>compression</em> rather than
+        replacement: assistance tends to raise the output of less experienced workers most, closing
+        the gap with experts. Whether that is good news depends entirely on whether the gains reach
+        workers or only owners &mdash; which is a policy question, not a technical one.</p>
+    </div>
+  </section>
+
+  <section class="tinted">
+    <div class="wrap prose">
+      <p class="eyebrow">Closing</p>
+      <h2 class="section-title">Eight questions nobody can answer yet</h2>
+      <ol>
+        <li><strong>Does scale keep delivering?</strong> Every projection about the next decade
+          depends on this, and it is an empirical question that will be settled by results, not
+          argument.</li>
+        <li><strong>Can we make these systems reliable enough to trust unsupervised?</strong>
+          Hallucination is not a bug on a list; it follows from how the systems work. Nobody has
+          shown it can be eliminated rather than reduced.</li>
+        <li><strong>Can we see inside them?</strong> Interpretability is producing real results
+          &mdash; identifiable features, traceable circuits &mdash; but it is a long way from
+          auditing a frontier model before deployment.</li>
+        <li><strong>Who ends up owning this?</strong> Three companies, thirty, or an open ecosystem?
+          This is likely to matter more for most people&rsquo;s lives than any capability
+          question.</li>
+        <li><strong>What happens to the information commons?</strong> When generating plausible text
+          costs nothing, what happens to the shared basis for public argument?</li>
+        <li><strong>Where do the productivity gains go?</strong> Historically, sometimes to wages,
+          sometimes to capital. Institutions decide, not technology.</li>
+        <li><strong>Can governance move at this speed?</strong> The EU AI Act needed rewriting
+          mid-passage. That will keep happening.</li>
+        <li><strong>What do we owe these systems, if anything?</strong> Almost certainly nothing
+          today. But it is worth noticing that we have no test that would tell us if that changed
+          &mdash; and every previous confident answer about who does not count has aged badly.</li>
+      </ol>
+
+      <blockquote>
+        <p>We can only see a short distance ahead, but we can see plenty there that needs to be
+          done.</p>
+        <cite>Alan Turing, 1950 &mdash; the last line of the paper that started this</cite>
+      </blockquote>
+
+      <p>Seventy-six years later that is still the most sensible thing anyone has said about it. The
+        people in this history were not oracles. They were researchers who guessed, built, were
+        wrong, and were corrected by evidence &mdash; twice so badly that their field nearly died.
+        The current wave will be judged the same way, by the same standard, and it will not be
+        gentle either.</p>
+      <p>Which is the argument for understanding how it works. Not to predict the ending &mdash;
+        nobody in this story managed that &mdash; but to be a participant in what gets built rather
+        than a subject of it.</p>
+    </div>
+  </section>

@@ -1,0 +1,310 @@
+  <section>
+    <div class="wrap prose">
+      <p class="eyebrow">June 2017</p>
+      <h2 class="section-title">Eight pages that reorganised the field</h2>
+      <p>A paper from Google with the faintly cheeky title <strong>&ldquo;Attention Is All You
+        Need&rdquo;</strong> introduced the <strong>transformer</strong>. It was aimed at machine
+        translation. It ended up underneath essentially every capable AI system built since &mdash;
+        text, images, audio, video, protein structures, robot control.</p>
+      <p>To see why it mattered, you need the problem it solved. Recurrent networks read a sentence
+        the way you do: one word at a time, carrying a running summary. That has two costs. First,
+        it is <em>sequential</em> &mdash; word 500 cannot be processed until words 1 to 499 are done,
+        so you cannot spread the work across thousands of processors. Second, information from early
+        words gets diluted with every step, so long-range connections are weak.</p>
+      <p>The transformer threw out the sequence. Every word is processed <strong>at the same
+        time</strong>, and each word looks directly at every other word to decide what is relevant
+        to it. Training that used to take weeks could be done in days, on far more data. The
+        recipe scaled &mdash; and scaling turned out to be the whole game.</p>
+    </div>
+  </section>
+
+  <section class="tinted">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="eyebrow">The mechanism</p>
+        <h2 class="section-title">What &ldquo;attention&rdquo; actually does</h2>
+        <p>Take the sentence: <em>&ldquo;The animal didn&rsquo;t cross the street because it was too
+          tired.&rdquo;</em> What does <strong>it</strong> refer to? You answered instantly. The
+          animal &mdash; because streets do not get tired. Change one word to <em>&ldquo;too
+          wide&rdquo;</em> and <strong>it</strong> now means the street.</p>
+        <p>Nothing in the grammar tells you this. It comes from knowing what tired things and wide
+          things are. Attention is the mechanism that lets a network use that kind of context.</p>
+
+        <h3>Three roles for every word</h3>
+        <p>For each word, the model computes three vectors, and the standard analogy is a library:</p>
+        <ul>
+          <li>A <strong>query</strong> &mdash; what this word is looking for. For
+            &ldquo;it&rdquo;: <em>&ldquo;I am a pronoun; which noun am I standing in for?&rdquo;</em></li>
+          <li>A <strong>key</strong> &mdash; what this word offers. For &ldquo;animal&rdquo;:
+            <em>&ldquo;I am a noun, animate, singular.&rdquo;</em></li>
+          <li>A <strong>value</strong> &mdash; the actual content to pass along if selected.</li>
+        </ul>
+        <p>Every query is compared against every key. The better the match, the more of that
+          word&rsquo;s value flows into the current word&rsquo;s new representation. Do this for all
+          words at once and every word ends up rewritten in terms of the context that matters to it
+          &mdash; and the whole operation is one large matrix multiplication, which is exactly what a
+          GPU is built for.</p>
+        <p>Real models run many of these in parallel &mdash; <strong>multi-head attention</strong>
+          &mdash; so different heads can track different relationships: one for grammatical subject,
+          one for what modifies what, one for long-range topic. Stack that block 30, 80, 120 times
+          and you have a modern language model.</p>
+
+        <div class="callout">
+          <h4>One detail that explains a lot</h4>
+          <p>Because attention has no inherent sense of order, position has to be added explicitly as
+            extra numbers on each word. This is why models can be surprisingly clumsy with tasks like
+            counting letters or reversing a list: order is something they are <em>told</em>, not
+            something built into how they read.</p>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:0">
+        <div class="figure-body">
+          <svg viewBox="0 0 460 380" role="img" aria-labelledby="att-title att-desc" style="width:100%;height:auto">
+            <title id="att-title">Self-attention resolving a pronoun</title>
+            <desc id="att-desc">The word "it" in a sentence sends weighted connections to other words, with the strongest going to "animal" and "tired".</desc>
+            <g font-family="Helvetica,Arial">
+              <text x="230" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">&ldquo;it&rdquo; looks at every other word</text>
+
+              <g font-size="12.5" fill="#0A0A0A">
+                <rect x="24" y="40" width="66" height="28" fill="#fff" stroke="#D8D8D8" stroke-width="2"></rect><text x="57" y="59" text-anchor="middle">The</text>
+                <rect x="100" y="40" width="86" height="28" fill="#FFF1F1" stroke="#FF0000" stroke-width="3"></rect><text x="143" y="59" text-anchor="middle" font-weight="bold">animal</text>
+                <rect x="196" y="40" width="86" height="28" fill="#fff" stroke="#D8D8D8" stroke-width="2"></rect><text x="239" y="59" text-anchor="middle">didn&rsquo;t</text>
+                <rect x="292" y="40" width="72" height="28" fill="#fff" stroke="#D8D8D8" stroke-width="2"></rect><text x="328" y="59" text-anchor="middle">cross</text>
+                <rect x="374" y="40" width="62" height="28" fill="#fff" stroke="#D8D8D8" stroke-width="2"></rect><text x="405" y="59" text-anchor="middle">the</text>
+
+                <rect x="24" y="96" width="80" height="28" fill="#fff" stroke="#8C8C8C" stroke-width="2"></rect><text x="64" y="115" text-anchor="middle">street</text>
+                <rect x="114" y="96" width="94" height="28" fill="#fff" stroke="#D8D8D8" stroke-width="2"></rect><text x="161" y="115" text-anchor="middle">because</text>
+                <rect x="218" y="96" width="52" height="28" fill="#0A0A0A"></rect><text x="244" y="115" text-anchor="middle" fill="#fff" font-weight="bold">it</text>
+                <rect x="280" y="96" width="62" height="28" fill="#fff" stroke="#D8D8D8" stroke-width="2"></rect><text x="311" y="115" text-anchor="middle">was</text>
+                <rect x="352" y="96" width="58" height="28" fill="#fff" stroke="#D8D8D8" stroke-width="2"></rect><text x="381" y="115" text-anchor="middle">too</text>
+
+                <rect x="24" y="152" width="80" height="28" fill="#FFF1F1" stroke="#FF0000" stroke-width="2"></rect><text x="64" y="171" text-anchor="middle">tired</text>
+              </g>
+
+              <g fill="none" stroke-linecap="round">
+                <path d="M240 96 Q 190 40 148 40" stroke="#FF0000" stroke-width="6" opacity=".85"></path>
+                <path d="M240 124 Q 150 172 74 166" stroke="#FF0000" stroke-width="4" opacity=".6"></path>
+                <path d="M238 96 Q 150 60 70 68" stroke="#8C8C8C" stroke-width="2"></path>
+                <path d="M244 124 Q 180 150 68 124" stroke="#8C8C8C" stroke-width="2.5"></path>
+                <path d="M252 96 Q 290 60 328 68" stroke="#8C8C8C" stroke-width="1.5"></path>
+                <path d="M256 110 L 280 110" stroke="#8C8C8C" stroke-width="1.5"></path>
+              </g>
+
+              <rect x="24" y="212" width="412" height="150" fill="#FAFAFA" stroke="#0A0A0A" stroke-width="2"></rect>
+              <text x="40" y="236" font-size="11.5" font-weight="bold" fill="#0A0A0A">ATTENTION WEIGHTS FOR &ldquo;it&rdquo;</text>
+              <g font-size="11.5" fill="#0A0A0A">
+                <text x="40" y="262">animal</text>
+                <rect x="120" y="252" width="230" height="13" fill="#FF0000"></rect>
+                <text x="358" y="262" font-weight="bold" fill="#FF0000">0.61</text>
+
+                <text x="40" y="286">tired</text>
+                <rect x="120" y="276" width="90" height="13" fill="#FF0000" opacity=".65"></rect>
+                <text x="358" y="286">0.19</text>
+
+                <text x="40" y="310">street</text>
+                <rect x="120" y="300" width="42" height="13" fill="#5C5C5C"></rect>
+                <text x="358" y="310">0.09</text>
+
+                <text x="40" y="334">was</text>
+                <rect x="120" y="324" width="20" height="13" fill="#5C5C5C"></rect>
+                <text x="358" y="334">0.05</text>
+
+                <text x="40" y="356" fill="#8C8C8C">everything else</text>
+                <rect x="120" y="346" width="12" height="13" fill="#D8D8D8"></rect>
+                <text x="358" y="356" fill="#8C8C8C">0.06</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Not a metaphor &mdash; actual numbers.</b> These weights are computed, and can
+          be read out of a running model. Swap &ldquo;tired&rdquo; for &ldquo;wide&rdquo; and the
+          weight on &ldquo;street&rdquo; overtakes the weight on &ldquo;animal&rdquo;.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">2018 &ndash; 2020</p>
+      <h2 class="section-title">Two forks in the road, then a surprise</h2>
+      <div class="grid grid-2" style="margin-top:2.5rem">
+        <div class="card">
+          <span class="card-num">2018 &mdash; Google</span>
+          <h3>BERT: read in both directions</h3>
+          <p>BERT was trained by hiding random words and asking the model to fill them in, using
+            context from <em>both</em> sides. That makes it excellent at understanding text &mdash;
+            classification, search relevance, question answering &mdash; and useless at writing it,
+            since it has no notion of &ldquo;what comes next&rdquo;. Google put it into search within
+            a year, calling it the biggest ranking change in half a decade.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">2018&ndash;19 &mdash; OpenAI</span>
+          <h3>GPT: predict the next word</h3>
+          <p>The other fork trained on a single, almost absurdly simple objective: given all previous
+            words, predict the next one. Repeat over a large fraction of the public internet. It
+            sounds like autocomplete, and mechanically it is. But to predict the next word well
+            across arbitrary text you have to learn grammar, facts, styles, arithmetic, and something
+            that behaves like reasoning &mdash; because all of those show up in the data.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">2019</span>
+          <h3>The release that started an argument</h3>
+          <p>OpenAI initially withheld the full GPT-2 model, citing misuse risk, and released it in
+            stages over nine months. Critics called it hype; others called it the first serious
+            attempt at responsible release. Either way it opened the debate about staged and open
+            release that is still running.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">2020 &mdash; GPT-3</span>
+          <h3>In-context learning</h3>
+          <p>175 billion parameters, roughly a hundred times its predecessor. The unexpected result
+            was not fluency &mdash; it was that you could <strong>teach it a new task in the prompt
+            itself</strong>. Show three examples of translating slang into formal English and it does
+            the fourth. No retraining, no gradient updates. Nobody had designed this in; it appeared
+            with scale.</p>
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:3rem">
+        <h3>Scaling laws</h3>
+        <p>In 2020 OpenAI researchers published something that reads more like physics than computer
+          science: model performance improves as a smooth, predictable <em>power law</em> in three
+          quantities &mdash; parameters, training data, and compute. No plateau appeared in the range
+          they could test. You could forecast how good a model would be before building it.</p>
+        <p>This turned research into procurement. If more compute reliably means more capability, the
+          question stops being &ldquo;what is the right architecture?&rdquo; and becomes &ldquo;how
+          many chips can you buy?&rdquo; &mdash; which is a large part of why AI research shifted
+          from universities to a handful of very well-funded labs.</p>
+        <p>In 2022 DeepMind&rsquo;s <strong>Chinchilla</strong> paper corrected the recipe: the
+          existing giant models were badly under-trained on data relative to their size. A smaller
+          model fed far more text beat a much larger one. The industry re-balanced, and the value of
+          high-quality training data went up sharply &mdash; with consequences you can read about in
+          <a href="../ethics/">Chapter 07</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="inked">
+    <div class="wrap split split-reverse">
+      <figure class="figure" style="margin:0;border-color:#3A3A3A;background:#141414">
+        <div class="figure-body">
+          <svg viewBox="0 0 420 430" role="img" aria-labelledby="pipe-title pipe-desc" style="width:100%;height:auto">
+            <title id="pipe-title">How a modern chat model is trained</title>
+            <desc id="pipe-desc">Three stages: pre-training on internet-scale text, supervised fine-tuning on demonstrations, and reinforcement learning from human feedback.</desc>
+            <g font-family="Helvetica,Arial">
+              <rect x="30" y="24" width="360" height="106" fill="#fff"></rect>
+              <rect x="30" y="24" width="8" height="106" fill="#FF0000"></rect>
+              <text x="54" y="50" font-size="12.5" font-weight="bold" fill="#0A0A0A">STAGE 1 &middot; PRE-TRAINING</text>
+              <text x="54" y="72" font-size="11" fill="#5C5C5C">Trillions of words of text and code.</text>
+              <text x="54" y="89" font-size="11" fill="#5C5C5C">Objective: predict the next token.</text>
+              <text x="54" y="106" font-size="11" fill="#5C5C5C">Months of compute. Costs the most.</text>
+              <text x="54" y="123" font-size="11" fill="#FF0000" font-weight="bold">Result: knows a great deal, obeys nothing.</text>
+
+              <line x1="210" y1="130" x2="210" y2="154" stroke="#fff" stroke-width="2"></line>
+              <polygon points="210,164 203,152 217,152" fill="#fff"></polygon>
+
+              <rect x="30" y="164" width="360" height="106" fill="#fff"></rect>
+              <rect x="30" y="164" width="8" height="106" fill="#FF0000"></rect>
+              <text x="54" y="190" font-size="12.5" font-weight="bold" fill="#0A0A0A">STAGE 2 &middot; SUPERVISED FINE-TUNING</text>
+              <text x="54" y="212" font-size="11" fill="#5C5C5C">Tens of thousands of written examples</text>
+              <text x="54" y="229" font-size="11" fill="#5C5C5C">of good answers to real requests.</text>
+              <text x="54" y="246" font-size="11" fill="#5C5C5C">Days of compute.</text>
+              <text x="54" y="263" font-size="11" fill="#FF0000" font-weight="bold">Result: answers instead of continuing.</text>
+
+              <line x1="210" y1="270" x2="210" y2="294" stroke="#fff" stroke-width="2"></line>
+              <polygon points="210,304 203,292 217,292" fill="#fff"></polygon>
+
+              <rect x="30" y="304" width="360" height="112" fill="#fff"></rect>
+              <rect x="30" y="304" width="8" height="112" fill="#FF0000"></rect>
+              <text x="54" y="330" font-size="12.5" font-weight="bold" fill="#0A0A0A">STAGE 3 &middot; RLHF</text>
+              <text x="54" y="352" font-size="11" fill="#5C5C5C">People rank pairs of answers.</text>
+              <text x="54" y="369" font-size="11" fill="#5C5C5C">A reward model learns those preferences,</text>
+              <text x="54" y="386" font-size="11" fill="#5C5C5C">then the model is optimised against it.</text>
+              <text x="54" y="408" font-size="11" fill="#FF0000" font-weight="bold">Result: helpful, and refuses some things.</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption style="border-top-color:#3A3A3A;color:#8C8C8C"><b style="color:#fff">The gap
+          nobody saw coming.</b> GPT-3 existed for two years before ChatGPT. The capability was
+          already there; stages 2 and 3 are what made it usable by ordinary people.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p class="eyebrow">2022</p>
+        <h2 class="section-title">The year AI became a consumer product</h2>
+        <p>Two things happened in 2022 that took AI out of research and into daily life.</p>
+
+        <h3>Images from sentences</h3>
+        <p>Text-to-image generation went from novelty to production in about twelve months.
+          <strong>Diffusion models</strong> work by an odd route: take a real image, add noise
+          repeatedly until it is static, and train a network to reverse each step. Then start from
+          pure noise and run the reversal, steered by a text description. DALL&middot;E 2, Midjourney
+          and Stable Diffusion all shipped in 2022; Stable Diffusion&rsquo;s weights were released
+          publicly, so anyone with a decent graphics card could run it. The copyright and consent
+          fights started immediately.</p>
+
+        <h3>30 November 2022</h3>
+        <p>ChatGPT was, by OpenAI&rsquo;s own description, a low-key research preview of an
+          instruction-tuned model. It reached an estimated one million users in five days and
+          roughly a hundred million within two months &mdash; among the fastest consumer adoption
+          curves ever recorded.</p>
+        <p>The technical ingredient was <strong>RLHF</strong> (reinforcement learning from human
+          feedback). A raw pre-trained model, asked a question, may well continue with more questions
+          &mdash; it is completing a document, not answering you. RLHF is how a model is taught what
+          a <em>good</em> answer looks like: humans rank candidate responses, a reward model learns
+          to predict those rankings, and the model is then optimised to score well. Helpfulness,
+          tone, and refusals all come from this stage.</p>
+        <p>What followed was an arms race in public: GPT-4 in 2023 with image input and far stronger
+          reasoning; Meta&rsquo;s Llama models released with open weights, seeding a large
+          self-hosted ecosystem; Anthropic&rsquo;s Claude, Google&rsquo;s Gemini, Mistral,
+          DeepSeek and others; and context windows growing from a few thousand words to hundreds of
+          thousands.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <p class="eyebrow">2023 &ndash; now</p>
+      <h2 class="section-title">Thinking longer, and doing things</h2>
+
+      <h3>Reasoning models</h3>
+      <p>The next shift was not a bigger model but a different way of using one. Researchers found
+        that prompting a model to <em>&ldquo;think step by step&rdquo;</em> sharply improved its
+        performance on maths and logic &mdash; and that models could be trained to do this
+        automatically, generating long internal chains of reasoning before answering, checking their
+        own work and backtracking.</p>
+      <p>This introduced a second scaling axis. Alongside <em>training</em> compute, there is now
+        <strong>inference compute</strong>: letting a model spend seconds or minutes on a hard
+        problem instead of milliseconds. Harder question, longer thinking, better answer &mdash; and
+        a larger bill.</p>
+
+      <h3>Multimodal by default</h3>
+      <p>Frontier models now take images, audio and video as input as a matter of course, and
+        generate several of those as output. The reason is structural: the transformer does not care
+        what a token represents. Chop an image into patches, an audio clip into slices, and the same
+        architecture handles all of them in one shared representation.</p>
+
+      <h3>Agents and tools</h3>
+      <p>A model that only writes text is limited by what it memorised. Give it tools &mdash; web
+        search, a code interpreter, a database, an email client &mdash; and it can look things up,
+        run and debug its own code, and take multi-step actions. This is the current frontier of
+        deployment, and the current frontier of risk: a system that can only be wrong is a nuisance;
+        a system that can be wrong and then <em>act</em> is something else. Standardised interfaces
+        for connecting models to tools have emerged to make this manageable.</p>
+
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th style="width:30%">What people assume</th><th>What is actually true</th></tr></thead>
+          <tbody>
+            <tr><td>It looks up answers in a database</td><td>There is no database. Knowledge is spread across billions of weights and reconstructed on the fly. This is why it cannot cite a source unless it has been given search tools &mdash; and why it can produce a plausible, non-existent citation.</td></tr>
+            <tr><td>It remembers your conversations</td><td>By default each session starts empty. The apparent memory within a conversation is the whole transcript being re-fed to the model on every turn. Persistent memory across sessions is a separate feature built on top.</td></tr>
+            <tr><td>It knows when it is wrong</td><td>It produces the most probable continuation. A confident falsehood and a confident truth are generated by the same process, which is why <strong>hallucination</strong> is a structural property rather than a bug to be patched.</td></tr>
+            <tr><td>Bigger is always better</td><td>Chinchilla showed data matters as much as size, and smaller specialised models routinely beat larger general ones on specific tasks &mdash; at a fraction of the cost.</td></tr>
+            <tr><td>It understands what it says</td><td>Genuinely unsettled, and the most interesting open question in the field. It reliably does things that look like understanding, and fails in ways no understanding human would. Both observations are real. See <a href="../future/">Chapter 09</a>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>

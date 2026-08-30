@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ethics: Fairness, Work and Ownership &middot; The Machine That Learned</title>
+<meta name="description" content="Bias in training data, the hidden labour behind AI, copyright fights, the environmental bill, and who gets a say.">
+<meta name="theme-color" content="#FF0000">
+<meta property="og:title" content="Ethics: Fairness, Work and Ownership &middot; The Machine That Learned">
+<meta property="og:description" content="Bias in training data, the hidden labour behind AI, copyright fights, the environmental bill, and who gets a say.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23FF0000'/><text x='16' y='23' font-family='Helvetica,Arial' font-size='17' font-weight='bold' fill='white' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../home/">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="name">The Machine That <b>Learned</b></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../home/">Home</a></li>
+        <li><a href="../origins/">Origins</a></li>
+        <li><a href="../goldenage/">Golden Age</a></li>
+        <li><a href="../winters/">AI Winters</a></li>
+        <li><a href="../learning/">Learning</a></li>
+        <li><a href="../deep/">Deep</a></li>
+        <li><a href="../modern/">Modern</a></li>
+        <li><a href="../timeline/">Timeline</a></li>
+        <li><a href="../people/">People</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../ethics/" aria-current="page">Ethics</a></li>
+        <li><a href="../risk/">Risk</a></li>
+        <li><a href="../future/">Future</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="read-progress" role="presentation"></div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <p class="kicker"><b>Chapter 07</b> &nbsp;&middot;&nbsp; The Machine That Learned</p>
+      <h1>Ethics: Fairness, Work and Ownership</h1>
+      <p class="years">Present tense</p>
+      <p class="lede">Bias in training data, the hidden labour behind AI, copyright fights, the environmental bill, and who gets a say.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap prose">
+      <p class="eyebrow">Framing</p>
+      <h2 class="section-title">Not science fiction. Things that already happened.</h2>
+      <p>Ethics discussions about AI often jump straight to robot uprisings. That is a mistake,
+        because it lets the actual harms &mdash; which are documented, dated and attributable
+        &mdash; slip past unexamined.</p>
+      <p>Everything on this page has already occurred. Real people lost jobs, homes, custody of their
+        children, and their liberty. In several cases the systems responsible were procured in good
+        faith by competent organisations who believed they were removing human bias, not automating
+        it.</p>
+      <div class="note">
+        <p>This chapter is about harms happening now. <a href="../risk/">Chapter 08</a> covers
+          catastrophic and speculative risk. Both are worth taking seriously; conflating them helps
+          nobody.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tinted">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="eyebrow">Problem 01</p>
+        <h2 class="section-title">Bias is not a bug in the code</h2>
+        <p>A machine learning system finds patterns in its training data and reproduces them. If the
+          data records a world with discrimination in it, the system learns the discrimination
+          &mdash; not as a mistake, but as its job, done correctly.</p>
+
+        <h3>Where it enters</h3>
+        <ul>
+          <li><strong>Historical data.</strong> Train a hiring model on ten years of a
+            company&rsquo;s decisions and it learns who that company hired, including whoever it
+            wrongly passed over.</li>
+          <li><strong>Sampling.</strong> If a face dataset is overwhelmingly light-skinned, the
+            model is simply worse on everyone else, and nobody notices because average accuracy looks
+            fine.</li>
+          <li><strong>Proxy variables.</strong> Remove race from the inputs and the model finds it
+            anyway, through postcode, school, name or shopping history. Removing the protected field
+            hides the bias rather than fixing it.</li>
+          <li><strong>Labelling.</strong> Somebody decided what counted as a &ldquo;good
+            employee&rdquo; or a &ldquo;risky&rdquo; applicant. Their judgement becomes ground
+            truth.</li>
+          <li><strong>Feedback loops.</strong> Predict more crime in a neighbourhood &rarr; send more
+            police &rarr; record more arrests there &rarr; the next model is even more confident. The
+            system generates its own evidence.</li>
+        </ul>
+
+        <h3>Documented cases</h3>
+        <ul>
+          <li><strong>COMPAS (2016).</strong> A risk score used in US courts. ProPublica&rsquo;s
+            analysis found Black defendants who did not reoffend were roughly twice as likely to have
+            been labelled high risk as comparable white defendants. The vendor disputed the
+            methodology, and statisticians showed the two sides were using incompatible definitions
+            of fairness &mdash; which, it turns out, cannot all be satisfied at once.</li>
+          <li><strong>Amazon&rsquo;s hiring tool (2018).</strong> Trained on a decade of CVs from a
+            male-dominated industry, it penalised the word &ldquo;women&rsquo;s&rdquo; and downgraded
+            graduates of two women&rsquo;s colleges. Amazon scrapped it.</li>
+          <li><strong>Gender Shades (2018).</strong> Joy Buolamwini and Timnit Gebru tested three
+            commercial gender-classification systems. Error rates for lighter-skinned men were under
+            1%. For darker-skinned women they ran as high as roughly 35%. The systems had shipped;
+            nobody had measured this.</li>
+          <li><strong>Wrongful arrests.</strong> Multiple people in the United States &mdash; Robert
+            Williams in Detroit in 2020 among the first publicly reported &mdash; have been arrested
+            on the basis of a face recognition match that was simply wrong. The known cases
+            disproportionately involve Black men.</li>
+        </ul>
+
+        <div class="callout">
+          <h4>The trap in &ldquo;just make it fair&rdquo;</h4>
+          <p>There are several reasonable mathematical definitions of fairness &mdash; equal false
+            positive rates, equal accuracy across groups, scores that mean the same thing for
+            everyone. It has been proved that when base rates differ between groups, you generally
+            cannot satisfy all of them simultaneously. Choosing which to satisfy is a political and
+            moral decision that no amount of engineering can make for you.</p>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:0">
+        <div class="figure-body">
+          <svg viewBox="0 0 400 400" role="img" aria-labelledby="loop-title loop-desc" style="width:100%;height:auto">
+            <title id="loop-title">The predictive policing feedback loop</title>
+            <desc id="loop-desc">A four-step circle: historical arrest data trains a model, the model predicts crime in a neighbourhood, police are sent there, more arrests are recorded, which feeds back into the data.</desc>
+            <g font-family="Helvetica,Arial">
+              <path d="M200 60 A140 140 0 0 1 340 200" fill="none" stroke="#FF0000" stroke-width="3"></path>
+              <path d="M340 200 A140 140 0 0 1 200 340" fill="none" stroke="#FF0000" stroke-width="3"></path>
+              <path d="M200 340 A140 140 0 0 1 60 200" fill="none" stroke="#FF0000" stroke-width="3"></path>
+              <path d="M60 200 A140 140 0 0 1 200 60" fill="none" stroke="#FF0000" stroke-width="3"></path>
+              <polygon points="345,196 331,190 331,206" fill="#FF0000"></polygon>
+              <polygon points="204,345 190,331 206,331" fill="#FF0000" transform="rotate(45 197 338)"></polygon>
+              <polygon points="55,204 69,210 69,194" fill="#FF0000"></polygon>
+              <polygon points="196,55 190,69 206,69" fill="#FF0000" transform="rotate(180 198 62)"></polygon>
+
+              <rect x="110" y="12" width="180" height="52" fill="#0A0A0A"></rect>
+              <text x="200" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">HISTORICAL DATA</text>
+              <text x="200" y="52" text-anchor="middle" font-size="10.5" fill="#B4B4B4">past arrests, not past crimes</text>
+
+              <rect x="286" y="174" width="112" height="52" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <text x="342" y="196" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">MODEL</text>
+              <text x="342" y="213" text-anchor="middle" font-size="10.5" fill="#5C5C5C">flags a district</text>
+
+              <rect x="110" y="336" width="180" height="52" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <text x="200" y="358" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">MORE PATROLS SENT</text>
+              <text x="200" y="375" text-anchor="middle" font-size="10.5" fill="#5C5C5C">where the model pointed</text>
+
+              <rect x="2" y="174" width="112" height="52" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <text x="58" y="196" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">MORE ARRESTS</text>
+              <text x="58" y="213" text-anchor="middle" font-size="10.5" fill="#5C5C5C">recorded there</text>
+
+              <text x="200" y="196" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FF0000">THE MODEL</text>
+              <text x="200" y="214" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FF0000">CONFIRMS ITSELF</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>A closed loop with no reality check.</b> Nothing here measures actual crime
+          &mdash; only where police went looking. Each cycle makes the model more confident about a
+          pattern it created.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Problem 02</p>
+      <h2 class="section-title">The people who make AI work, and are not in the photos</h2>
+      <div class="split" style="margin-top:2rem">
+        <div class="prose">
+          <p>&ldquo;The model learned it from data&rdquo; obscures a great deal of human work.
+            Somebody drew the boxes around every pedestrian in the self-driving training set.
+            Somebody decided which of two chatbot answers was better, thousands of times, so that
+            RLHF had preferences to learn from. Somebody watched the violent and abusive material so
+            the safety filters could be tuned.</p>
+          <p>That work is real employment, and a lot of it is outsourced to Kenya, the Philippines,
+            India and Venezuela, paid by the task, with limited job security. Reporting in 2023
+            described workers in Nairobi labelling graphic material for content filters at rates
+            around $1.32 to $2 an hour, several of whom described lasting psychological harm. The
+            same broad pattern &mdash; piece rates, no mental health provision, non-disclosure
+            agreements &mdash; recurs across the industry.</p>
+          <p>Content moderation for social platforms has produced similar outcomes for longer,
+            including a $52 million settlement in 2020 for US moderators who developed PTSD. AI has
+            not removed this labour; it has increased demand for it while making it less visible.</p>
+          <p><strong>Why it matters ethically:</strong> the cost of building these systems is not
+            only paid in electricity and chips. Part of it is paid by people who are not in the
+            launch announcements, do not hold equity, and cannot say what they worked on.</p>
+        </div>
+
+        <div class="prose">
+          <p class="eyebrow">Problem 03</p>
+          <h2 class="section-title" style="font-size:1.6rem">Who owns the training data?</h2>
+          <p>Frontier models are trained on text and images scraped from the open web at a scale
+            where individual permission was never sought. Whether that is lawful is being decided in
+            courts right now, jurisdiction by jurisdiction, and the answers are not yet consistent.</p>
+          <ul>
+            <li><strong>The New York Times v. OpenAI and Microsoft (2023).</strong> Alleges
+              large-scale copying of articles for training and reproduction of passages in output.</li>
+            <li><strong>Getty Images v. Stability AI.</strong> Getty pointed to outputs carrying
+              distorted remnants of its watermark as evidence of what was in the training set.</li>
+            <li><strong>Authors&rsquo; and artists&rsquo; class actions.</strong> Multiple suits over
+              books and artworks used without licence or payment.</li>
+          </ul>
+          <p>The legal question is roughly whether training is transformative fair use or
+            large-scale reproduction. The economic question is sharper: these systems compete with
+            the people whose work trained them &mdash; illustrators, stock photographers, copywriters,
+            translators, voice actors &mdash; using capabilities derived from that work.</p>
+          <p>Responses so far include licensing deals between labs and publishers, opt-out signals
+            of contested effectiveness, provenance standards for generated media, and
+            consent-first datasets. None is yet the norm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="inked">
+    <div class="wrap">
+      <p class="eyebrow">Problem 04 &amp; 05</p>
+      <h2 class="section-title">The bill, and who gets to send it</h2>
+      <div class="grid grid-2" style="margin-top:2.5rem">
+        <div class="card" style="background:#141414;border-color:#3A3A3A">
+          <span class="card-num">Environment</span>
+          <h3>Electricity, water, hardware</h3>
+          <p style="color:#CFCFCF">Training a frontier model consumes energy on the scale of hundreds
+            of homes for a year. Serving it to millions of users afterwards consumes considerably
+            more in total &mdash; inference, not training, is now the larger share.</p>
+          <p style="color:#CFCFCF">Data centres also consume fresh water for cooling, sometimes in
+            regions already under water stress, and the chips depend on mined materials and a highly
+            concentrated manufacturing supply chain.</p>
+          <p style="color:#CFCFCF">Reporting is patchy and often voluntary. The honest position is
+            that the footprint is significant, growing quickly, and harder to audit than it should
+            be &mdash; while the same technology also has genuine applications in grid optimisation
+            and materials science. Both can be true; neither cancels the other.</p>
+        </div>
+        <div class="card" style="background:#141414;border-color:#3A3A3A">
+          <span class="card-num">Power</span>
+          <h3>A very short list of builders</h3>
+          <p style="color:#CFCFCF">Training a frontier model costs on the order of tens to hundreds
+            of millions of dollars in compute alone, plus data, plus talent. That confines the
+            frontier to a handful of companies and states.</p>
+          <p style="color:#CFCFCF">The consequences are structural. Academic labs cannot replicate
+            frontier results, so independent verification weakens. Safety research increasingly
+            happens inside the organisations with the strongest commercial reasons to ship. The
+            values baked into refusals, tone and defaults are chosen by small teams and applied to
+            hundreds of millions of people.</p>
+          <p style="color:#CFCFCF">Open-weight models push back on this &mdash; anyone can inspect,
+            fine-tune and run them &mdash; at the cost of removing the ability to withdraw a model
+            once released. That trade-off has no clean answer, and it is the live argument in
+            <a href="../risk/">Chapter 08</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <p class="eyebrow">Problem 06</p>
+      <h2 class="section-title">Automated decisions about people who cannot appeal</h2>
+      <p>The clearest harms come not from the most advanced systems but from ordinary ones,
+        deployed at scale against people with no practical way to contest the result.</p>
+
+      <h3>The Dutch childcare benefits scandal</h3>
+      <p>Between roughly 2013 and 2019 the Dutch tax authority used a risk-scoring system to flag
+        possible childcare benefit fraud. Having a second nationality was among the factors that
+        raised suspicion. Tens of thousands of families &mdash; disproportionately those with
+        migrant backgrounds &mdash; were wrongly accused, ordered to repay sums many did not owe, and
+        driven into debt. Over a thousand children were placed in foster care. The Dutch government
+        resigned over it in January 2021.</p>
+
+      <h3>Robodebt</h3>
+      <p>Australia&rsquo;s automated welfare debt recovery scheme, running from 2016, calculated
+        alleged overpayments by averaging annual income across fortnights &mdash; a method that
+        systematically invented debts for anyone with irregular work. Around 470,000 wrongly issued
+        debts were later cancelled or refunded. A Royal Commission in 2023 found the scheme unlawful
+        and described it as a &ldquo;crude and cruel mechanism&rdquo;. It was linked to multiple
+        suicides.</p>
+
+      <p>Neither used deep learning. Both illustrate the pattern that matters: an automated decision,
+        applied to a large population, with the burden of proof reversed and no accessible route to
+        challenge it. Adding a more capable model to that structure makes it faster, not fairer.</p>
+
+      <div class="callout">
+        <h4>What actually helps</h4>
+        <p>Not slogans. Concrete, boring practices: <strong>documentation</strong> (model cards and
+          dataset datasheets stating what a system was built for, tested on, and known to fail at);
+          <strong>disaggregated evaluation</strong> (accuracy reported per group, not averaged);
+          <strong>a human who can actually overrule the system</strong> and is not punished for doing
+          so; <strong>a working appeals route</strong> with the burden of proof in the right place;
+          <strong>independent audit</strong> with real access; and <strong>the option not to
+          build it</strong>, which remains available at every stage and is used far too rarely.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="wrap pager" aria-label="Chapter navigation">
+      <a class="prev" href="../modern/"><span class="dir">&larr; Previous</span><span class="ttl">Transformers, Scale and Generative AI</span></a>
+      <a class="next" href="../risk/"><span class="dir">Next &rarr;</span><span class="ttl">Risk, Safety and Regulation</span></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>The Machine That Learned</h4>
+        <p style="font-size:.92rem;line-height:1.6;max-width:32ch;margin:0">A history of artificial intelligence, from Alan Turing to today.</p>
+      </div>
+        <div>
+          <h4>The story</h4>
+          <ul>
+            <li><a href="../origins/">Origins of a Thinking Machine</a></li>
+            <li><a href="../goldenage/">The Golden Age and Its Limits</a></li>
+            <li><a href="../winters/">The AI Winters</a></li>
+            <li><a href="../learning/">The Statistical Turn</a></li>
+            <li><a href="../deep/">The Deep Learning Revolution</a></li>
+            <li><a href="../modern/">Transformers, Scale and Generative AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>The stakes</h4>
+          <ul>
+            <li><a href="../ethics/">Ethics: Fairness, Work and Ownership</a></li>
+            <li><a href="../risk/">Risk, Safety and Regulation</a></li>
+            <li><a href="../future/">What Happens Next</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Reference</h4>
+          <ul>
+            <li><a href="../timeline/">The Full Timeline</a></li>
+            <li><a href="../people/">The People Behind the Machines</a></li>
+            <li><a href="../glossary/">Glossary</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Written for readers, not researchers. Every date is checked; every explanation is deliberately plain.</span>
+      <span>Built as a static site &mdash; no trackers, no frameworks.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

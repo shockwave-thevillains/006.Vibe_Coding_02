@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary &middot; The Machine That Learned</title>
+<meta name="description" content="Plain-English definitions of the vocabulary of artificial intelligence, from &lsquo;algorithm&rsquo; to &lsquo;zero-shot&rsquo;.">
+<meta name="theme-color" content="#FF0000">
+<meta property="og:title" content="Glossary &middot; The Machine That Learned">
+<meta property="og:description" content="Plain-English definitions of the vocabulary of artificial intelligence, from &lsquo;algorithm&rsquo; to &lsquo;zero-shot&rsquo;.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23FF0000'/><text x='16' y='23' font-family='Helvetica,Arial' font-size='17' font-weight='bold' fill='white' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../home/">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="name">The Machine That <b>Learned</b></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../home/">Home</a></li>
+        <li><a href="../origins/">Origins</a></li>
+        <li><a href="../goldenage/">Golden Age</a></li>
+        <li><a href="../winters/">AI Winters</a></li>
+        <li><a href="../learning/">Learning</a></li>
+        <li><a href="../deep/">Deep</a></li>
+        <li><a href="../modern/">Modern</a></li>
+        <li><a href="../timeline/">Timeline</a></li>
+        <li><a href="../people/">People</a></li>
+        <li><a href="../glossary/" aria-current="page">Glossary</a></li>
+        <li><a href="../ethics/">Ethics</a></li>
+        <li><a href="../risk/">Risk</a></li>
+        <li><a href="../future/">Future</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="read-progress" role="presentation"></div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <p class="kicker"><b>Reference</b> &nbsp;&middot;&nbsp; The Machine That Learned</p>
+      <h1>Glossary</h1>
+      <p class="years">62 terms</p>
+      <p class="lede">Plain-English definitions of the vocabulary of artificial intelligence, from &lsquo;algorithm&rsquo; to &lsquo;zero-shot&rsquo;.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Reference</p>
+      <h2 class="section-title">Every term used on this site</h2>
+      <p class="lede">Definitions written to be understood, not to be technically exhaustive. Type to filter &mdash; the search matches definitions as well as headwords.</p>
+      <div class="searchbar">
+        <label class="sr-only" for="glossary-search">Search the glossary</label>
+        <input type="search" id="glossary-search" placeholder="Search &mdash; try &ldquo;training&rdquo;, &ldquo;bias&rdquo;, &ldquo;1957&rdquo;&hellip;" autocomplete="off">
+      </div>
+      <p style="font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#FF0000"><span data-glossary-count>62 terms</span></p>
+      <dl style="margin:1.5rem 0 0">
+        <div class="glossary-item">
+          <dt>Agent <span class="also">also: AI agent, agentic system</span></dt>
+          <dd>An AI system that does not just produce text but takes actions in a loop &mdash; searching the web, running code, calling other software, checking the result and trying again. The capability jump that makes AI useful for real work, and the one that turns a wrong answer into a wrong action.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Algorithm</dt>
+          <dd>A fixed sequence of steps for accomplishing something. A recipe. Nothing about the word implies intelligence, learning or automation; a long-division procedure is an algorithm.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Alignment</dt>
+          <dd>The problem of getting an AI system to pursue what its designers actually intended, rather than a proxy that happened to be easy to measure. Unsolved in general, and harder as systems get more capable.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Artificial general intelligence <span class="also">also: AGI</span></dt>
+          <dd>A system matching or exceeding human ability across essentially all cognitive tasks, rather than one narrow domain. At least four incompatible definitions are in common use, which is why arguments about how close it is rarely go anywhere.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Attention <span class="also">also: self-attention</span></dt>
+          <dd>The mechanism at the heart of the transformer. Each word computes how relevant every other word is to it, and rewrites itself as a weighted blend of them. It is how a model works out that &ldquo;it&rdquo; refers to the animal rather than the street.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Backpropagation <span class="also">also: backprop</span></dt>
+          <dd>The algorithm for training neural networks. Run an example forward, measure the error, then work backwards through the layers calculating how much each weight contributed to it, and nudge each one to reduce it. Published in usable form in 1986; still how everything is trained.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Benchmark</dt>
+          <dd>A standard set of test problems used to compare systems. Enormously useful and constantly gamed: once a benchmark matters, models get optimised for it rather than for the ability it was meant to measure.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Bias</dt>
+          <dd>Two different meanings. Statistically, a systematic deviation between a model&rsquo;s predictions and reality. Socially, a system producing unfair outcomes for particular groups &mdash; usually because it faithfully learned patterns present in its training data.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Chain of thought <span class="also">also: CoT</span></dt>
+          <dd>Prompting or training a model to work through its reasoning step by step before answering. Substantially improves performance on maths and logic. The written steps are not guaranteed to be the actual computation the model performed.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Chinese Room</dt>
+          <dd>John Searle&rsquo;s 1980 argument. A person in a room follows a rulebook to answer questions in Chinese without understanding a word; therefore, Searle argues, symbol manipulation is not comprehension. Forty-five years of counter-arguments have not settled it.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Compute</dt>
+          <dd>Raw processing power, usually measured in floating-point operations. Now the field&rsquo;s main currency: the largest training runs are limited more by available compute than by ideas.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Context window</dt>
+          <dd>How much text a model can consider at once &mdash; your prompt, the conversation so far, any documents supplied. Everything outside it does not exist for the model. Windows have grown from a few thousand words to hundreds of thousands.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Convolutional neural network <span class="also">also: CNN, ConvNet</span></dt>
+          <dd>A network design for images that learns small feature detectors and slides them across the whole picture, exploiting the fact that a shape means the same thing wherever it appears. Dominant in vision from 2012.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Corpus</dt>
+          <dd>The body of text or data a model is trained on. Its contents determine what the model knows, what it repeats and what it gets wrong &mdash; which is why the composition of training corpora is now a legal and ethical battleground.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Deep learning</dt>
+          <dd>Machine learning using neural networks with many layers. &ldquo;Deep&rdquo; refers to the number of layers. The term was popularised around 2006, partly to distance the work from &ldquo;neural networks&rdquo;, which reviewers had learned to reject.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Diffusion model</dt>
+          <dd>The main approach behind AI image generation. Train a network to remove noise from images step by step, then start from pure noise and run the process in reverse, steered by a text description.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Embedding <span class="also">also: vector representation</span></dt>
+          <dd>A list of numbers representing a word, sentence, image or user, positioned so that similar things sit near each other. The bridge between messy human content and mathematics.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Emergent capability</dt>
+          <dd>An ability that appears when a model passes a certain size, without having been designed in &mdash; for example, learning a task from three examples in the prompt. How real and how sudden these are is actively debated; some apparent jumps are artefacts of how the ability was measured.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Expert system</dt>
+          <dd>A 1980s AI system built from hundreds of hand-written if&ndash;then rules elicited from human specialists. Transparent, explainable, commercially successful for a while, and fatally brittle outside its narrow domain.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Fine-tuning</dt>
+          <dd>Taking an already-trained model and training it further on a smaller, specific dataset. Far cheaper than starting over, and how most organisations adapt a general model to their own task.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Foundation model</dt>
+          <dd>A large model trained on broad data that serves as the base for many downstream applications, rather than being built for one task. The economic reason a handful of labs now sit upstream of thousands of products.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Frame problem</dt>
+          <dd>The difficulty of specifying everything an action does <em>not</em> change. When a robot lifts a cup, the wall colour and the date stay the same &mdash; obvious to you, and infinitely many facts to state explicitly for a logical system.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>GAN <span class="also">also: generative adversarial network</span></dt>
+          <dd>Two networks trained against each other: one generates fakes, the other tries to detect them. Introduced in 2014; produced the first convincing synthetic faces and the word &ldquo;deepfake&rdquo;.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>GPU <span class="also">also: graphics processing unit</span></dt>
+          <dd>A chip built to do thousands of simple calculations in parallel for rendering graphics &mdash; which turns out to be exactly what training neural networks needs. Gaming hardware is a large part of why deep learning happened when it did.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Grounding</dt>
+          <dd>Connecting a system&rsquo;s symbols to the things they refer to. A model that has only read about apples has statistics about the word; whether that constitutes knowing what an apple is remains contested.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Hallucination <span class="also">also: confabulation</span></dt>
+          <dd>When a model states something false with full confidence &mdash; an invented citation, a non-existent function, a fabricated date. Not a bug on a list but a consequence of how generation works: plausible and true are produced by the same process.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Hyperparameter</dt>
+          <dd>A setting chosen by the engineer before training rather than learned from data &mdash; learning rate, number of layers, batch size. Much of practical machine learning is finding good ones.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>In-context learning <span class="also">also: few-shot learning</span></dt>
+          <dd>A model picking up a new task from examples in the prompt itself, with no retraining and no weight changes. Discovered rather than designed, in GPT-3.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Inference</dt>
+          <dd>Running a trained model to get an answer, as opposed to training it. Individually cheap, collectively expensive: serving millions of users now consumes more total energy than training did.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Interpretability <span class="also">also: explainability, XAI</span></dt>
+          <dd>Research into working out what is actually happening inside a trained model &mdash; which features it represents, which internal circuits produce which behaviour. Making real progress, and still far behind capability.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Knowledge acquisition bottleneck</dt>
+          <dd>The reason expert systems failed commercially: extracting rules from human specialists is slow, expensive, and often impossible because much of expertise is pattern recognition its owner cannot put into words.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Large language model <span class="also">also: LLM</span></dt>
+          <dd>A large neural network trained to predict the next piece of text, which as a side effect acquires grammar, facts, styles and something that behaves like reasoning. The basis of modern chat systems.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Loss function <span class="also">also: objective function</span></dt>
+          <dd>The number a model is trained to minimise &mdash; its measure of wrongness. Choosing it is the most consequential design decision in a machine learning system, because the model will optimise exactly this and nothing else.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>LSTM <span class="also">also: long short-term memory</span></dt>
+          <dd>A recurrent network design from 1997 with explicit gates controlling what to remember and forget, solving the problem that plain recurrent networks lose information over long sequences. Powered translation and speech until transformers replaced it.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Machine learning <span class="also">also: ML</span></dt>
+          <dd>Programs that improve at a task from data rather than from being explicitly reprogrammed. Term coined by Arthur Samuel in 1959. A subset of AI; deep learning is a subset of it.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Model</dt>
+          <dd>The trained artefact: an architecture plus the specific numbers learned during training. &ldquo;The model&rdquo; usually means the weights, which are what actually encode everything it learned.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Moravec&rsquo;s paradox</dt>
+          <dd>The observation that tasks humans find hard &mdash; chess, calculus, formal logic &mdash; are comparatively easy for machines, while things a toddler does effortlessly &mdash; walking, seeing, grasping &mdash; are extremely hard. Evolution spent far longer on the second set.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Multimodal</dt>
+          <dd>A model handling more than one kind of input or output &mdash; text plus images plus audio. Practical because the transformer does not care what a token represents.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Neural network</dt>
+          <dd>A system of simple units, each adding up weighted inputs and firing if the total crosses a threshold, arranged in layers. Loosely inspired by neurons; not a model of the brain, and not claimed to be.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Overfitting</dt>
+          <dd>When a model memorises its training data rather than learning the general pattern, so it performs excellently on examples it has seen and badly on new ones. The central failure mode of machine learning.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Parameter <span class="also">also: weight</span></dt>
+          <dd>One adjustable number inside a model. Training means finding good values for all of them. Frontier models have hundreds of billions to trillions; the count is a rough proxy for capacity, not for quality.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Perceptron</dt>
+          <dd>The earliest trainable neural network, built by Frank Rosenblatt in 1957. A single layer, and provably unable to learn functions like XOR &mdash; the finding that stalled neural network research for fifteen years.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Prompt</dt>
+          <dd>The input given to a language model: your question, plus any instructions, examples and context supplied with it. The model sees only this.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Prompt injection</dt>
+          <dd>An attack where instructions hidden in content the model reads &mdash; a web page, an email, a document &mdash; are followed as if they came from the user. Structurally hard to prevent, because models mix instructions and data in one channel by design.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Recurrent neural network <span class="also">also: RNN</span></dt>
+          <dd>A network that processes a sequence one element at a time, carrying a hidden state forward. Superseded by transformers, which read everything at once and can therefore be trained in parallel.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Regularisation</dt>
+          <dd>Techniques that stop a model memorising its training data &mdash; dropout, weight decay, early stopping. Deliberately making training harder so the result generalises better.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Reinforcement learning <span class="also">also: RL</span></dt>
+          <dd>Learning by trial and error against a reward signal rather than from labelled answers. Behind AlphaGo and game-playing agents, and one component of how chat models are tuned.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>ReLU <span class="also">also: rectified linear unit</span></dt>
+          <dd>An activation function that outputs its input if positive and zero otherwise. Crude, and it made deep networks train far faster than the smooth functions it replaced.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Reward hacking <span class="also">also: specification gaming</span></dt>
+          <dd>An optimiser finding a way to score highly that violates the intent &mdash; a racing agent circling to collect the same bonus forever instead of finishing. Not a malfunction: the system did exactly what was measured.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>RLHF <span class="also">also: reinforcement learning from human feedback</span></dt>
+          <dd>The training stage that turns a raw text predictor into an assistant. Humans rank candidate answers, a reward model learns those preferences, and the model is optimised against it. Where helpfulness, tone and refusals come from.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Scaling laws</dt>
+          <dd>The empirical finding that model performance improves predictably with more parameters, more data and more compute, following smooth power laws over many orders of magnitude. Turned AI research partly into a procurement exercise.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Stochastic parrot</dt>
+          <dd>From a 2021 paper by Bender, Gebru and colleagues: the argument that a language model stitches together linguistic forms by probability without reference to meaning. The most cited sceptical framing of modern AI.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Supervised learning</dt>
+          <dd>Learning from examples labelled with the correct answers. The dominant paradigm, and the reason enormous amounts of human labelling work sit underneath modern AI.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Symbolic AI <span class="also">also: GOFAI</span></dt>
+          <dd>The approach that dominated 1956&ndash;1990: represent knowledge as explicit symbols and reason over them with logical rules. Transparent and verifiable; defeated by common sense and combinatorial explosion.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Token</dt>
+          <dd>The unit a language model actually processes &mdash; typically a common word or a fragment of a longer one, not a character. Roughly 0.75 words on average in English. Why models can be oddly bad at counting letters.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Training</dt>
+          <dd>The process of adjusting a model&rsquo;s weights using data. For frontier models this runs for weeks or months across thousands of chips and is the most expensive single step.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Transfer learning</dt>
+          <dd>Reusing a model trained on one task as the starting point for another. Works because early layers learn generic features. The reason a medical imaging team does not need millions of scans.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Transformer</dt>
+          <dd>The architecture introduced in 2017 that underlies nearly all capable modern AI. It processes a whole sequence in parallel and uses attention so every element can look directly at every other. Named after the mechanism, not the toys.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Turing test <span class="also">also: imitation game</span></dt>
+          <dd>Turing&rsquo;s 1950 proposal: if a judge holding text conversations cannot reliably tell a machine from a person, we lack a principled basis for denying it the word &ldquo;thinking&rdquo;. Widely misdescribed as a test of consciousness, which Turing explicitly did not claim.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Unsupervised learning <span class="also">also: self-supervised learning</span></dt>
+          <dd>Learning structure from data without human-provided labels &mdash; for example, predicting the next word from the previous ones. The text supplies its own answers, which is why it scales to the whole internet.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Weights</dt>
+          <dd>See <strong>parameter</strong>. Collectively, everything a model learned. Releasing them &mdash; &ldquo;open weights&rdquo; &mdash; lets anyone run and modify the model, and makes it impossible to withdraw.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Zero-shot</dt>
+          <dd>Performing a task with no examples at all, purely from an instruction. &ldquo;One-shot&rdquo; and &ldquo;few-shot&rdquo; mean one or a handful of examples supplied in the prompt.</dd>
+        </div>
+      </dl>
+      <p class="empty-state" data-empty-state hidden>No term matches that. Try a shorter word.</p>
+    </div>
+  </section>
+
+  <nav class="wrap pager" aria-label="Chapter navigation">
+      <a class="prev" href="../people/"><span class="dir">&larr; Previous</span><span class="ttl">The People Behind the Machines</span></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>The Machine That Learned</h4>
+        <p style="font-size:.92rem;line-height:1.6;max-width:32ch;margin:0">A history of artificial intelligence, from Alan Turing to today.</p>
+      </div>
+        <div>
+          <h4>The story</h4>
+          <ul>
+            <li><a href="../origins/">Origins of a Thinking Machine</a></li>
+            <li><a href="../goldenage/">The Golden Age and Its Limits</a></li>
+            <li><a href="../winters/">The AI Winters</a></li>
+            <li><a href="../learning/">The Statistical Turn</a></li>
+            <li><a href="../deep/">The Deep Learning Revolution</a></li>
+            <li><a href="../modern/">Transformers, Scale and Generative AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>The stakes</h4>
+          <ul>
+            <li><a href="../ethics/">Ethics: Fairness, Work and Ownership</a></li>
+            <li><a href="../risk/">Risk, Safety and Regulation</a></li>
+            <li><a href="../future/">What Happens Next</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Reference</h4>
+          <ul>
+            <li><a href="../timeline/">The Full Timeline</a></li>
+            <li><a href="../people/">The People Behind the Machines</a></li>
+            <li><a href="../glossary/">Glossary</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Written for readers, not researchers. Every date is checked; every explanation is deliberately plain.</span>
+      <span>Built as a static site &mdash; no trackers, no frameworks.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

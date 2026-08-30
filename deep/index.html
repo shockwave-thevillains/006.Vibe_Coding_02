@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Deep Learning Revolution &middot; The Machine That Learned</title>
+<meta name="description" content="AlexNet, GPUs, convolutional networks, LSTMs, GANs and AlphaGo: the five years that made neural networks the default.">
+<meta name="theme-color" content="#FF0000">
+<meta property="og:title" content="The Deep Learning Revolution &middot; The Machine That Learned">
+<meta property="og:description" content="AlexNet, GPUs, convolutional networks, LSTMs, GANs and AlphaGo: the five years that made neural networks the default.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23FF0000'/><text x='16' y='23' font-family='Helvetica,Arial' font-size='17' font-weight='bold' fill='white' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../home/">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="name">The Machine That <b>Learned</b></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../home/">Home</a></li>
+        <li><a href="../origins/">Origins</a></li>
+        <li><a href="../goldenage/">Golden Age</a></li>
+        <li><a href="../winters/">AI Winters</a></li>
+        <li><a href="../learning/">Learning</a></li>
+        <li><a href="../deep/" aria-current="page">Deep</a></li>
+        <li><a href="../modern/">Modern</a></li>
+        <li><a href="../timeline/">Timeline</a></li>
+        <li><a href="../people/">People</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../ethics/">Ethics</a></li>
+        <li><a href="../risk/">Risk</a></li>
+        <li><a href="../future/">Future</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="read-progress" role="presentation"></div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <p class="kicker"><b>Chapter 05</b> &nbsp;&middot;&nbsp; The Machine That Learned</p>
+      <h1>The Deep Learning Revolution</h1>
+      <p class="years">2012 &ndash; 2017</p>
+      <p class="lede">AlexNet, GPUs, convolutional networks, LSTMs, GANs and AlphaGo: the five years that made neural networks the default.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap split">
+      <div class="prose">
+        <p class="eyebrow">30 September 2012</p>
+        <h2 class="section-title">The result that ended the argument</h2>
+        <p>Every year since 2010, the <strong>ImageNet Large Scale Visual Recognition
+          Challenge</strong> had asked competing teams to do one thing: sort 1.2 million photographs
+          into 1,000 categories. Not &ldquo;dog&rdquo; but &ldquo;Border collie&rdquo;. Not
+          &ldquo;mushroom&rdquo; but the specific species. It is genuinely hard, and human experts
+          get about 5% of them wrong.</p>
+        <p>Progress had been incremental. The winning error rate fell from 28.2% to 25.8% in two
+          years, through careful hand-engineering of visual features &mdash; edge detectors, texture
+          descriptors, colour histograms designed by researchers who had spent careers on the
+          problem.</p>
+        <p>Then a team of three from the University of Toronto &mdash; <strong>Alex Krizhevsky, Ilya
+          Sutskever and Geoffrey Hinton</strong> &mdash; entered a deep convolutional neural network
+          trained on two consumer gaming graphics cards. It scored <strong>15.3%</strong>. Second
+          place, using the established methods, scored 26.2%.</p>
+        <p>A margin like that is not an improvement. It is a different category of result. By the
+          following year, essentially every serious entry was a neural network, and the
+          hand-engineered feature detectors that had defined computer vision were abandoned within
+          about eighteen months.</p>
+
+        <div class="callout">
+          <h4>What was actually new in AlexNet</h4>
+          <p>Almost nothing, individually. Convolutional networks came from LeCun in 1989.
+            Backpropagation from 1986. What AlexNet combined was <strong>scale</strong> (60 million
+            parameters, trained on GPUs for a week), <strong>ReLU activations</strong> (a simpler
+            non-linearity that made deep networks train far faster), <strong>dropout</strong>
+            (randomly switching off neurons during training so the network cannot over-rely on any
+            one path), and <strong>data augmentation</strong> (flipping and cropping images to
+            multiply the training set). Engineering, not theory.</p>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:0">
+        <div class="figure-body">
+          <svg viewBox="0 0 660 360" role="img" aria-labelledby="in-title in-desc" style="width:100%;height:auto">
+            <title id="in-title">ImageNet winning error rates, 2010 to 2015</title>
+            <desc id="in-desc">A bar chart of top-5 error rates falling from 28.2 percent in 2010 to 3.57 percent in 2015, with the drop to 16.4 percent in 2012 marking the first deep learning winner, and a dashed line at 5.1 percent showing typical human error.</desc>
+            <g font-family="Helvetica,Arial">
+              <line x1="70" y1="290" x2="640" y2="290" stroke="#0A0A0A" stroke-width="2"></line>
+              <line x1="70" y1="30" x2="70" y2="290" stroke="#0A0A0A" stroke-width="2"></line>
+
+              <rect x="88" y="55" width="70" height="235" fill="#5C5C5C"></rect>
+              <rect x="178" y="75" width="70" height="215" fill="#5C5C5C"></rect>
+              <rect x="268" y="153" width="70" height="137" fill="#FF0000"></rect>
+              <rect x="358" y="193" width="70" height="97" fill="#FF0000"></rect>
+              <rect x="448" y="234" width="70" height="56" fill="#FF0000"></rect>
+              <rect x="538" y="260" width="70" height="30" fill="#FF0000"></rect>
+
+              <g font-size="12.5" font-weight="bold" text-anchor="middle" fill="#0A0A0A">
+                <text x="123" y="47">28.2%</text>
+                <text x="213" y="67">25.8%</text>
+                <text x="303" y="145">16.4%</text>
+                <text x="393" y="185">11.7%</text>
+                <text x="483" y="226">6.7%</text>
+                <text x="573" y="252">3.6%</text>
+              </g>
+              <g font-size="11.5" text-anchor="middle" fill="#5C5C5C">
+                <text x="123" y="308">2010</text>
+                <text x="213" y="308">2011</text>
+                <text x="303" y="308">2012</text>
+                <text x="393" y="308">2013</text>
+                <text x="483" y="308">2014</text>
+                <text x="573" y="308">2015</text>
+              </g>
+              <g font-size="10.5" text-anchor="middle" fill="#8C8C8C">
+                <text x="168" y="326">hand-built features</text>
+                <text x="438" y="326">deep neural networks</text>
+              </g>
+
+              <line x1="70" y1="247" x2="546" y2="247" stroke="#0A0A0A" stroke-width="2" stroke-dasharray="7 5"></line>
+              <line x1="602" y1="247" x2="640" y2="247" stroke="#0A0A0A" stroke-width="2" stroke-dasharray="7 5"></line>
+              <text x="638" y="222" text-anchor="end" font-size="11" font-weight="bold" fill="#0A0A0A">human error &asymp; 5.1%</text>
+
+              <text x="303" y="127" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FF0000">AlexNet</text>
+
+              <text x="24" y="160" font-size="11" font-weight="bold" fill="#5C5C5C" transform="rotate(-90 24 160)" text-anchor="middle">TOP-5 ERROR RATE</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Two years of grind, then a cliff.</b> The 2012 drop was large enough that the
+          rest of the field switched methods almost immediately. By 2015 machines were below typical
+          human error on this particular task &mdash; which is narrower than it sounds.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="tinted">
+    <div class="wrap split split-reverse">
+      <figure class="figure" style="margin:0">
+        <div class="figure-body">
+          <svg viewBox="0 0 440 400" role="img" aria-labelledby="cnn-title cnn-desc" style="width:100%;height:auto">
+            <title id="cnn-title">What each layer of a convolutional network learns</title>
+            <desc id="cnn-desc">Four stacked stages: raw pixels, then edges and colours, then textures and simple parts, then object parts, then a final label.</desc>
+            <g font-family="Helvetica,Arial">
+              <rect x="60" y="24" width="200" height="46" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <text x="160" y="45" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">INPUT</text>
+              <text x="160" y="61" text-anchor="middle" font-size="10.5" fill="#5C5C5C">raw pixels, no meaning</text>
+              <text x="278" y="52" font-size="10.5" fill="#8C8C8C">224&times;224&times;3</text>
+
+              <line x1="160" y1="70" x2="160" y2="88" stroke="#0A0A0A" stroke-width="2"></line>
+              <polygon points="160,96 154,86 166,86" fill="#0A0A0A"></polygon>
+
+              <rect x="60" y="96" width="200" height="58" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <text x="160" y="115" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">LAYER 1&ndash;2</text>
+              <text x="160" y="131" text-anchor="middle" font-size="10.5" fill="#5C5C5C">edges, corners, colour blobs</text>
+              <g stroke="#FF0000" stroke-width="2.5" fill="none">
+                <line x1="96" y1="140" x2="116" y2="146"></line>
+                <line x1="136" y1="148" x2="150" y2="136"></line>
+                <path d="M170 146 q10 -12 20 0"></path>
+                <circle cx="212" cy="141" r="6"></circle>
+              </g>
+              <text x="278" y="128" font-size="10.5" fill="#8C8C8C">generic</text>
+
+              <line x1="160" y1="154" x2="160" y2="172" stroke="#0A0A0A" stroke-width="2"></line>
+              <polygon points="160,180 154,170 166,170" fill="#0A0A0A"></polygon>
+
+              <rect x="60" y="180" width="200" height="58" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <text x="160" y="199" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">LAYER 3&ndash;5</text>
+              <text x="160" y="215" text-anchor="middle" font-size="10.5" fill="#5C5C5C">textures, simple shapes</text>
+              <g stroke="#FF0000" stroke-width="2" fill="none">
+                <rect x="94" y="222" width="14" height="12"></rect>
+                <path d="M126 234 l7 -13 l7 13 z"></path>
+                <path d="M158 228 q8 -10 16 0 q-8 10 -16 0"></path>
+                <path d="M192 222 l0 12 M198 222 l0 12 M204 222 l0 12"></path>
+              </g>
+
+              <line x1="160" y1="238" x2="160" y2="256" stroke="#0A0A0A" stroke-width="2"></line>
+              <polygon points="160,264 154,254 166,254" fill="#0A0A0A"></polygon>
+
+              <rect x="60" y="264" width="200" height="58" fill="#fff" stroke="#0A0A0A" stroke-width="2"></rect>
+              <text x="160" y="283" text-anchor="middle" font-size="12" font-weight="bold" fill="#0A0A0A">LAYER 6&ndash;8</text>
+              <text x="160" y="299" text-anchor="middle" font-size="10.5" fill="#5C5C5C">wheels, eyes, faces, ears</text>
+              <text x="160" y="316" text-anchor="middle" font-size="10.5" fill="#FF0000" font-weight="bold">object parts</text>
+              <text x="278" y="296" font-size="10.5" fill="#8C8C8C">specific</text>
+
+              <line x1="160" y1="322" x2="160" y2="340" stroke="#0A0A0A" stroke-width="2"></line>
+              <polygon points="160,348 154,338 166,338" fill="#0A0A0A"></polygon>
+
+              <rect x="60" y="348" width="200" height="42" fill="#FF0000"></rect>
+              <text x="160" y="374" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">&ldquo;Border collie&rdquo;</text>
+
+              <line x1="34" y1="30" x2="34" y2="382" stroke="#0A0A0A" stroke-width="2"></line>
+              <polygon points="34,390 28,378 40,378" fill="#0A0A0A"></polygon>
+              <text x="20" y="206" font-size="10.5" font-weight="bold" fill="#5C5C5C" transform="rotate(-90 20 206)" text-anchor="middle">INCREASING ABSTRACTION</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Nobody designed this hierarchy.</b> It emerges from training. Researchers
+          discovered it afterwards, by inspecting what made each neuron fire &mdash; and found the
+          same ladder in almost every network, on almost every image dataset.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p class="eyebrow">The mechanism</p>
+        <h2 class="section-title">Why &ldquo;deep&rdquo; is the important word</h2>
+        <p>The old approach asked human researchers to design the features: write code that detects
+          edges, then code that combines edges into shapes, then a classifier on top. Each stage was
+          a research paper.</p>
+        <p>A deep network does the same thing &mdash; but it <em>discovers</em> each stage from the
+          data. Early layers, entirely on their own, converge on edge and colour detectors that look
+          remarkably like the ones neuroscientists find in the first stages of the mammalian visual
+          cortex. Middle layers combine those into textures and simple shapes. Later layers respond
+          to wheels, faces, doorknobs.</p>
+        <p>This is <strong>representation learning</strong>, and it is the actual breakthrough. The
+          machine is not just learning to answer the question; it is learning what to look at.
+          Because early layers learn generic features, a network trained on ImageNet can be
+          re-purposed for medical scans or satellite imagery with a fraction of the data &mdash;
+          <strong>transfer learning</strong>, now standard practice everywhere.</p>
+
+        <h3>What made the depth trainable</h3>
+        <ul>
+          <li><strong>ReLU</strong> &mdash; replacing smooth S-shaped activation functions with a
+            blunt &ldquo;output the input if positive, otherwise zero&rdquo;. It sounds crude. It
+            stopped the error signal from shrinking to nothing on its way back through the layers.</li>
+          <li><strong>Dropout</strong> &mdash; randomly disabling half the neurons on each training
+            pass, forcing the network to build redundant routes rather than fragile ones.</li>
+          <li><strong>Batch normalisation</strong> (2015) &mdash; rescaling the values flowing
+            between layers so they stay in a well-behaved range, which made much deeper networks
+            train reliably.</li>
+          <li><strong>Residual connections</strong> (2015) &mdash; letting each layer learn a small
+            <em>correction</em> to what came before, rather than a whole new transformation. This one
+            change took networks from about 20 usable layers to 150 and beyond.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">2013 &ndash; 2017</p>
+      <h2 class="section-title">Five years, five directions</h2>
+      <div class="grid grid-2" style="margin-top:2.5rem">
+        <div class="card">
+          <span class="card-num">2013</span>
+          <h3>word2vec: meaning as geometry</h3>
+          <p>Tom&aacute;&scaron; Mikolov&rsquo;s team at Google trained a simple network to predict a
+            word from its neighbours, then threw away the network and kept the numbers it had learned
+            for each word. Those numbers &mdash; <strong>embeddings</strong> &mdash; placed related
+            words near each other in space, and encoded relationships as directions: the step from
+            <em>king</em> to <em>queen</em> was roughly the same step as from <em>man</em> to
+            <em>woman</em>.</p>
+          <p>It was the first widely convincing demonstration that a machine could capture something
+            about meaning purely from co-occurrence statistics. It also inherited every bias in the
+            text, which is how the field learned that lesson the hard way.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">2014</span>
+          <h3>GANs: two networks in a duel</h3>
+          <p>Ian Goodfellow&rsquo;s idea, reportedly worked out after a pub argument: train two
+            networks against each other. A <strong>generator</strong> tries to produce fake images.
+            A <strong>discriminator</strong> tries to spot the fakes. Each one&rsquo;s success is the
+            other&rsquo;s failure, so both improve.</p>
+          <p>Within four years the generator was producing photorealistic faces of people who do not
+            exist. GANs gave the world its first serious taste of synthetic media &mdash; and the
+            word &ldquo;deepfake&rdquo;.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">2014</span>
+          <h3>Sequence to sequence</h3>
+          <p>Translation was reframed: one network reads the whole source sentence and compresses it
+            into a vector; a second network reads that vector and writes the target sentence. No
+            grammar, no dictionaries, no alignment rules.</p>
+          <p>The catch was the bottleneck &mdash; one fixed-size vector had to hold an entire
+            sentence, and long sentences degraded badly. The fix, <strong>attention</strong>,
+            arrived in 2015 and turned out to be the whole future. See
+            <a href="../modern/">Chapter 06</a>.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">2015</span>
+          <h3>Learning to play from pixels</h3>
+          <p>DeepMind&rsquo;s <strong>DQN</strong> learned to play 49 Atari games from nothing but
+            the raw screen and the score, using the same network and the same settings for every
+            game. On about half of them it exceeded a professional human tester. It had no idea what
+            a paddle or an alien was &mdash; only which pixel patterns preceded points.</p>
+          <p>This was <strong>reinforcement learning</strong> arriving at scale: no labelled answers,
+            just a reward signal and a great many attempts.</p>
+        </div>
+        <div class="card" style="grid-column:span 2">
+          <span class="card-num">March 2016 &mdash; the one people remember</span>
+          <h3>AlphaGo beats Lee Sedol</h3>
+          <p>Go had been AI&rsquo;s standing embarrassment. The board is 19&times;19; the number of
+            legal positions exceeds the count of atoms in the observable universe. Deep Blue&rsquo;s
+            brute-force search is useless here, and evaluating who is winning in Go is notoriously
+            subtle. Experts in 2015 estimated a decade or more before a machine could beat a top
+            professional.</p>
+          <p>DeepMind combined three things: a network that proposed plausible moves, a network that
+            judged positions, and Monte Carlo tree search to explore the promising lines. It trained
+            first on human games, then by playing millions of games against itself. It beat Lee Sedol,
+            one of the strongest players of his generation, 4&ndash;1, watched live by over 200
+            million people.</p>
+          <p>In game two came <strong>move 37</strong> &mdash; a shoulder hit on the fifth line that
+            commentators initially assumed was a bug. It was not. It was a move no human would play,
+            and it won the game. Lee Sedol later said it made him reconsider what he thought he knew
+            about Go. In game four he answered with move 78, a wedge so unlikely that AlphaGo had
+            assigned it almost no probability; the machine collapsed and lost. It remains the only
+            game he won, and one of the most closely studied moves in the history of the game.</p>
+          <p>A year later <strong>AlphaGo Zero</strong> dropped the human games entirely. Given only
+            the rules, playing solely against itself, it surpassed the version that beat Lee Sedol
+            after three days of training &mdash; and rediscovered, then discarded as inferior,
+            several joseki that human players had used for centuries.</p>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:2.5rem">
+        <p><strong>Keep the ledger honest.</strong> Every system in this chapter does exactly one
+          thing. AlphaGo cannot play chess. DQN cannot describe the game it just played. AlexNet
+          cannot answer a question about the photo it labelled. This is <em>narrow</em> AI, however
+          superhuman. The next chapter is about the first architecture that started to blur that
+          line.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="wrap pager" aria-label="Chapter navigation">
+      <a class="prev" href="../learning/"><span class="dir">&larr; Previous</span><span class="ttl">The Statistical Turn</span></a>
+      <a class="next" href="../modern/"><span class="dir">Next &rarr;</span><span class="ttl">Transformers, Scale and Generative AI</span></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>The Machine That Learned</h4>
+        <p style="font-size:.92rem;line-height:1.6;max-width:32ch;margin:0">A history of artificial intelligence, from Alan Turing to today.</p>
+      </div>
+        <div>
+          <h4>The story</h4>
+          <ul>
+            <li><a href="../origins/">Origins of a Thinking Machine</a></li>
+            <li><a href="../goldenage/">The Golden Age and Its Limits</a></li>
+            <li><a href="../winters/">The AI Winters</a></li>
+            <li><a href="../learning/">The Statistical Turn</a></li>
+            <li><a href="../deep/">The Deep Learning Revolution</a></li>
+            <li><a href="../modern/">Transformers, Scale and Generative AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>The stakes</h4>
+          <ul>
+            <li><a href="../ethics/">Ethics: Fairness, Work and Ownership</a></li>
+            <li><a href="../risk/">Risk, Safety and Regulation</a></li>
+            <li><a href="../future/">What Happens Next</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Reference</h4>
+          <ul>
+            <li><a href="../timeline/">The Full Timeline</a></li>
+            <li><a href="../people/">The People Behind the Machines</a></li>
+            <li><a href="../glossary/">Glossary</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Written for readers, not researchers. Every date is checked; every explanation is deliberately plain.</span>
+      <span>Built as a static site &mdash; no trackers, no frameworks.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

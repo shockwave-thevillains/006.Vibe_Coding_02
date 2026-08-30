@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Golden Age and Its Limits &middot; The Machine That Learned</title>
+<meta name="description" content="Logic Theorist, the perceptron, ELIZA, SHRDLU and Shakey: the first wave of AI, and the hard walls it ran into.">
+<meta name="theme-color" content="#FF0000">
+<meta property="og:title" content="The Golden Age and Its Limits &middot; The Machine That Learned">
+<meta property="og:description" content="Logic Theorist, the perceptron, ELIZA, SHRDLU and Shakey: the first wave of AI, and the hard walls it ran into.">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23FF0000'/><text x='16' y='23' font-family='Helvetica,Arial' font-size='17' font-weight='bold' fill='white' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../home/">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="name">The Machine That <b>Learned</b></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../home/">Home</a></li>
+        <li><a href="../origins/">Origins</a></li>
+        <li><a href="../goldenage/" aria-current="page">Golden Age</a></li>
+        <li><a href="../winters/">AI Winters</a></li>
+        <li><a href="../learning/">Learning</a></li>
+        <li><a href="../deep/">Deep</a></li>
+        <li><a href="../modern/">Modern</a></li>
+        <li><a href="../timeline/">Timeline</a></li>
+        <li><a href="../people/">People</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../ethics/">Ethics</a></li>
+        <li><a href="../risk/">Risk</a></li>
+        <li><a href="../future/">Future</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="read-progress" role="presentation"></div>
+</header>
+
+<main id="main">
+  <header class="page-head">
+    <div class="wrap">
+      <p class="kicker"><b>Chapter 02</b> &nbsp;&middot;&nbsp; The Machine That Learned</p>
+      <h1>The Golden Age and Its Limits</h1>
+      <p class="years">1956 &ndash; 1973</p>
+      <p class="lede">Logic Theorist, the perceptron, ELIZA, SHRDLU and Shakey: the first wave of AI, and the hard walls it ran into.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap prose">
+      <p class="eyebrow">1956 &ndash; 1966</p>
+      <h2 class="section-title">Everything worked, so everything seemed possible</h2>
+      <p>The decade after Dartmouth produced a run of results that genuinely deserved the
+        excitement. Computers with less memory than a modern doorbell were doing things no machine
+        had ever done. It is worth taking the optimism seriously before laughing at it &mdash; if you
+        had been in the room, you would probably have shared it.</p>
+      <p>The dominant approach had a name: <strong>symbolic AI</strong>, sometimes called
+        <em>Good Old-Fashioned AI</em>. The bet was simple and elegant. Intelligence is reasoning.
+        Reasoning is manipulating symbols according to rules. Computers manipulate symbols
+        beautifully. Therefore: write down the right symbols and the right rules, and you get
+        thought.</p>
+    </div>
+  </section>
+
+  <section class="tinted">
+    <div class="wrap">
+      <h2 class="section-title">Six programs that made people believe</h2>
+      <div class="grid grid-2" style="margin-top:2.5rem">
+        <div class="card">
+          <span class="card-num">1957 &mdash; Newell &amp; Simon</span>
+          <h3>General Problem Solver</h3>
+          <p>An attempt at a <em>universal</em> reasoner. GPS was given a starting state and a goal
+            state, and searched for a sequence of moves between them using
+            <strong>means&ndash;ends analysis</strong>: look at the biggest difference between where
+            you are and where you want to be, and pick an action that reduces it.</p>
+          <p>It solved logic puzzles, the Tower of Hanoi, and word problems. It also revealed the
+            flaw that would define the era: it could not tell which differences mattered, so on any
+            realistic problem the search space exploded.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1958 &mdash; John McCarthy</span>
+          <h3>LISP</h3>
+          <p>A programming language built on one idea: <strong>code and data have the same shape</strong>
+            &mdash; nested lists. That means a program can read, build and modify other programs,
+            including itself, as easily as it edits a list of numbers.</p>
+          <p>For symbolic AI, where the whole job is shuffling symbolic structures, this was the
+            perfect tool. LISP dominated AI research for thirty years and gave the world garbage
+            collection, recursion as a first-class idiom, and the read&ndash;eval&ndash;print loop.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1959 &mdash; Arthur Samuel</span>
+          <h3>The checkers player</h3>
+          <p>Samuel&rsquo;s IBM 701 program played checkers &mdash; and, crucially, <em>improved</em>.
+            It played thousands of games against itself, adjusted how it scored board positions based
+            on which choices led to wins, and remembered positions it had already evaluated.</p>
+          <p>By 1962 it beat a self-described state champion. Samuel coined the phrase
+            <strong>machine learning</strong> to describe what it did: getting better at a task
+            without being explicitly reprogrammed for each improvement.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1966 &mdash; Joseph Weizenbaum</span>
+          <h3>ELIZA</h3>
+          <p>A pattern-matching script that imitated a Rogerian psychotherapist by turning whatever
+            you typed back into a question. &ldquo;My mother hates me&rdquo; became &ldquo;Tell me
+            more about your family.&rdquo; It understood nothing. There was no model of the
+            conversation, no memory, no meaning &mdash; roughly 200 lines of substitution rules.</p>
+          <p>People confided in it anyway. Weizenbaum&rsquo;s own secretary asked him to leave the
+            room so she could talk to it privately. He was so disturbed by how readily people
+            attributed understanding to a trivial program that he spent the rest of his career as one
+            of AI&rsquo;s sharpest critics.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1966&ndash;72 &mdash; SRI</span>
+          <h3>Shakey the robot</h3>
+          <p>The first mobile robot that reasoned about its own actions. Shakey could be told
+            &ldquo;push the block off the platform&rdquo;, work out that it first needed to find a
+            ramp, plan the route, and execute it &mdash; perceiving the room with a TV camera and
+            replanning when things went wrong.</p>
+          <p>It moved at about two metres per hour and needed a radio link to a mainframe. But the
+            planner built for it, <strong>STRIPS</strong>, is the direct ancestor of the automated
+            planning systems used today in logistics and spacecraft operations.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1970 &mdash; Terry Winograd</span>
+          <h3>SHRDLU</h3>
+          <p>The high-water mark of symbolic AI, and the program that best shows why it stalled.
+            SHRDLU controlled a simulated table of coloured blocks and held real conversations about
+            it: <em>&ldquo;Find a block which is taller than the one you are holding and put it in the
+            box.&rdquo;</em> It resolved pronouns, asked for clarification when a request was
+            ambiguous, and could explain <em>why</em> it had done something.</p>
+          <p>It was genuinely impressive and genuinely a trap. Everything SHRDLU knew was hand-coded
+            about a world of a dozen blocks. Nobody found a way to scale that to a world containing
+            kitchens, weather, sarcasm and other people.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="prose">
+        <p class="eyebrow">1957 &ndash; 1969</p>
+        <h2 class="section-title">The perceptron, and the book that buried it</h2>
+        <p>Running in parallel to symbolic AI was a rival tradition. In 1957 <strong>Frank
+          Rosenblatt</strong>, a psychologist at Cornell, built the <strong>perceptron</strong>: a
+          machine that learned to classify patterns without being told the rules.</p>
+        <p>The Mark I Perceptron was physical hardware. A 20&times;20 grid of photocells looked at a
+          card; motor-driven potentiometers held the weights; the machine adjusted them itself.
+          Show it letters, tell it when it was wrong, and the weights drifted toward a setting that
+          worked. It was learning in the Hebbian sense &mdash; connections that helped got stronger.</p>
+        <p>The press coverage was extravagant even by modern standards. The US Navy told reporters it
+          expected the perceptron to be &ldquo;the embryo of an electronic computer that will be able
+          to walk, talk, see, write, reproduce itself and be conscious of its existence&rdquo;.</p>
+
+        <h3>Then, 1969</h3>
+        <p>Marvin Minsky and Seymour Papert published <em>Perceptrons</em>, a careful mathematical
+          study of exactly what a single-layer perceptron can and cannot do. Their central example
+          was <strong>XOR</strong> &mdash; a rule as simple as &ldquo;one or the other, but not
+          both&rdquo;.</p>
+        <p>A single-layer perceptron draws one straight line through the data and calls everything on
+          one side &ldquo;yes&rdquo;. For XOR, no straight line works. The proof is airtight, and it
+          generalises: any pattern that is not <em>linearly separable</em> is out of reach.</p>
+        <p>Minsky and Papert knew that <em>multi-layer</em> networks could represent XOR &mdash; they
+          said so. Their point was that nobody knew how to train one. But the nuance did not survive
+          contact with funding committees. Neural network research lost most of its money for
+          fifteen years, and Rosenblatt died in a boating accident in 1971, aged 43, with the field
+          he founded in retreat.</p>
+
+        <div class="callout">
+          <h4>The gap that would be closed</h4>
+          <p>The missing piece was an efficient way to work out how much each weight in a
+            <em>hidden</em> layer contributed to the final error. That algorithm &mdash;
+            backpropagation &mdash; was published in a usable form in 1986, and the whole field
+            reversed direction. See <a href="../learning/">Chapter 04</a>.</p>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:0">
+        <div class="figure-body">
+          <svg viewBox="0 0 420 480" role="img" aria-labelledby="xor-title xor-desc" style="width:100%;height:auto">
+            <title id="xor-title">Why a single-layer perceptron cannot learn XOR</title>
+            <desc id="xor-desc">Two plots. In the AND plot a single straight line separates the filled point from the open points. In the XOR plot the two filled points lie on opposite corners, and no straight line can separate them.</desc>
+            <g font-family="Helvetica,Arial">
+              <text x="210" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#0A0A0A">AND &mdash; one line works</text>
+              <rect x="90" y="40" width="180" height="180" fill="#FAFAFA" stroke="#0A0A0A" stroke-width="2"></rect>
+              <line x1="130" y1="220" x2="270" y2="80" stroke="#FF0000" stroke-width="3"></line>
+              <circle cx="120" cy="190" r="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"></circle>
+              <circle cx="240" cy="190" r="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"></circle>
+              <circle cx="120" cy="70" r="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"></circle>
+              <circle cx="240" cy="70" r="10" fill="#0A0A0A"></circle>
+              <text x="105" y="240" font-size="11" fill="#5C5C5C">0,0</text>
+              <text x="228" y="240" font-size="11" fill="#5C5C5C">1,0</text>
+              <text x="105" y="60" font-size="11" fill="#5C5C5C">0,1</text>
+              <text x="252" y="66" font-size="11" fill="#5C5C5C">1,1</text>
+              <text x="285" y="130" font-size="11" fill="#FF0000" font-weight="bold">decision</text>
+              <text x="285" y="145" font-size="11" fill="#FF0000" font-weight="bold">boundary</text>
+
+              <text x="210" y="290" text-anchor="middle" font-size="13" font-weight="bold" fill="#0A0A0A">XOR &mdash; no line works</text>
+              <rect x="90" y="308" width="180" height="180" fill="#FAFAFA" stroke="#0A0A0A" stroke-width="2"></rect>
+              <line x1="98" y1="470" x2="262" y2="330" stroke="#D8D8D8" stroke-width="2.5" stroke-dasharray="6 4"></line>
+              <line x1="98" y1="330" x2="262" y2="470" stroke="#D8D8D8" stroke-width="2.5" stroke-dasharray="6 4"></line>
+              <line x1="180" y1="316" x2="180" y2="480" stroke="#D8D8D8" stroke-width="2.5" stroke-dasharray="6 4"></line>
+              <circle cx="120" cy="458" r="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"></circle>
+              <circle cx="240" cy="458" r="10" fill="#0A0A0A"></circle>
+              <circle cx="120" cy="338" r="10" fill="#0A0A0A"></circle>
+              <circle cx="240" cy="338" r="10" fill="#fff" stroke="#0A0A0A" stroke-width="2.5"></circle>
+              <text x="105" y="330" font-size="11" fill="#5C5C5C">0,1</text>
+              <text x="252" y="334" font-size="11" fill="#5C5C5C">1,1</text>
+              <text x="105" y="482" font-size="11" fill="#5C5C5C">0,0</text>
+              <text x="252" y="478" font-size="11" fill="#5C5C5C">1,0</text>
+              <text x="30" y="400" font-size="11" fill="#FF0000" font-weight="bold" transform="rotate(-90 30 400)" text-anchor="middle">TRY ANY LINE</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Four points that stopped a research programme.</b> Filled circles mean
+          &ldquo;output 1&rdquo;. For AND, a single line separates them. For XOR, the filled points
+          sit on opposite corners &mdash; and one straight cut can never isolate them.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="inked">
+    <div class="wrap prose">
+      <p class="eyebrow">The promises</p>
+      <h2 class="section-title">Predictions that did not survive contact with reality</h2>
+      <p>These were not press-release exaggerations. They were serious statements by the field&rsquo;s
+        most senior figures, made to funders and in print.</p>
+      <blockquote style="border-left-color:#FF0000">
+        <p style="color:#fff">Machines will be capable, within twenty years, of doing any work a man
+          can do.</p>
+        <cite>Herbert Simon, 1965</cite>
+      </blockquote>
+      <blockquote style="border-left-color:#FF0000">
+        <p style="color:#fff">Within a generation &hellip; the problem of creating
+          &lsquo;artificial intelligence&rsquo; will substantially be solved.</p>
+        <cite>Marvin Minsky, 1967</cite>
+      </blockquote>
+      <p>In 1958 Simon and Newell predicted a computer would be world chess champion within ten
+        years. It took thirty-nine. In 1970 Minsky reportedly told <em>Life</em> magazine that a
+        machine with the general intelligence of an average human was three to eight years away.</p>
+      <p>Statements like these were made directly to the agencies writing the cheques. When the
+        deadlines passed with nothing delivered, the cheques stopped &mdash; and the next chapter
+        happened.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2 class="section-title">Four walls the golden age ran into</h2>
+
+      <h3>1. Combinatorial explosion</h3>
+      <p>Symbolic AI solves problems by searching through possibilities. The trouble is that
+        possibilities multiply. A chess position has roughly 30 legal moves; look ten moves ahead
+        and you are examining more positions than there are grains of sand on Earth. Programs that
+        breezed through toy problems became unusable the moment the problem got real &mdash; not
+        because the computers were slow, but because the numbers grow faster than any hardware
+        ever will.</p>
+
+      <h3>2. The commonsense problem</h3>
+      <p>To understand &ldquo;the trophy would not fit in the suitcase because it was too big&rdquo;,
+        you need to know that trophies are rigid, suitcases have interiors, and &ldquo;it&rdquo;
+        here means the trophy &mdash; because if it meant the suitcase, the sentence would say
+        &ldquo;too small&rdquo;. None of that is in the sentence. It is in you. Writing down
+        everything an ordinary adult knows turned out to be a task with no visible end.</p>
+
+      <h3>3. The frame problem</h3>
+      <p>When a robot picks up a cup, what changes? The cup&rsquo;s position, obviously. What does
+        <em>not</em> change? The colour of the wall, the day of the week, the position of every other
+        object in the building, the price of tea. Humans never consider these. A logical system has
+        to be told, explicitly, about every fact that an action leaves alone &mdash; and there are
+        infinitely many of those.</p>
+
+      <h3>4. Micro-worlds do not add up</h3>
+      <p>The strategy was to master a tiny domain and then scale. But SHRDLU&rsquo;s success came
+        <em>from</em> the smallness of its world, not despite it. There is no ladder from a table of
+        blocks to a kitchen. Each new domain meant starting the hand-coding again.</p>
+
+      <div class="note">
+        <p><strong>Worth keeping in mind:</strong> none of these problems were ever solved. Modern AI
+          did not defeat the frame problem or write down common sense &mdash; it went around them, by
+          learning statistical patterns from enormous amounts of human-produced text and images
+          instead of reasoning from explicit facts. The walls are still there. We built a different
+          road.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="wrap pager" aria-label="Chapter navigation">
+      <a class="prev" href="../origins/"><span class="dir">&larr; Previous</span><span class="ttl">Origins of a Thinking Machine</span></a>
+      <a class="next" href="../winters/"><span class="dir">Next &rarr;</span><span class="ttl">The AI Winters</span></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>The Machine That Learned</h4>
+        <p style="font-size:.92rem;line-height:1.6;max-width:32ch;margin:0">A history of artificial intelligence, from Alan Turing to today.</p>
+      </div>
+        <div>
+          <h4>The story</h4>
+          <ul>
+            <li><a href="../origins/">Origins of a Thinking Machine</a></li>
+            <li><a href="../goldenage/">The Golden Age and Its Limits</a></li>
+            <li><a href="../winters/">The AI Winters</a></li>
+            <li><a href="../learning/">The Statistical Turn</a></li>
+            <li><a href="../deep/">The Deep Learning Revolution</a></li>
+            <li><a href="../modern/">Transformers, Scale and Generative AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>The stakes</h4>
+          <ul>
+            <li><a href="../ethics/">Ethics: Fairness, Work and Ownership</a></li>
+            <li><a href="../risk/">Risk, Safety and Regulation</a></li>
+            <li><a href="../future/">What Happens Next</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Reference</h4>
+          <ul>
+            <li><a href="../timeline/">The Full Timeline</a></li>
+            <li><a href="../people/">The People Behind the Machines</a></li>
+            <li><a href="../glossary/">Glossary</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Written for readers, not researchers. Every date is checked; every explanation is deliberately plain.</span>
+      <span>Built as a static site &mdash; no trackers, no frameworks.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

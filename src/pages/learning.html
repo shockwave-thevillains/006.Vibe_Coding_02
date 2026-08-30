@@ -1,0 +1,269 @@
+  <section>
+    <div class="wrap prose">
+      <p class="eyebrow">The reversal</p>
+      <h2 class="section-title">Stop writing rules. Start counting.</h2>
+      <p>The most important change in the history of AI is not a machine or a person. It is a
+        reversal of direction, and it happened quietly, mostly during the second winter, mostly
+        without anyone calling it artificial intelligence.</p>
+      <p>The old way: a human works out the rules, writes them down, and the computer applies them.
+        The new way: <strong>the human supplies examples with the right answers attached, and the
+        computer works out the rules itself.</strong></p>
+      <p>Consider spam filtering. The symbolic approach is to write rules: block anything containing
+        &ldquo;FREE MONEY&rdquo;. Spammers write &ldquo;FR&Xi;&Xi; M0NEY&rdquo;, and you write
+        another rule, forever. The statistical approach is to take 50,000 emails already labelled
+        spam or not-spam, count how often each word appears in each pile, and let the machine work
+        out that certain words shift the odds. Nobody writes a rule. When spammers adapt, you
+        retrain on new mail and the filter adapts with them.</p>
+      <p>This works. It works so well that by the mid-1990s it had taken over speech recognition,
+        translation, search ranking, credit scoring, fraud detection and recommendation &mdash;
+        while the term &ldquo;AI&rdquo; was still radioactive.</p>
+    </div>
+  </section>
+
+  <section class="tinted">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="eyebrow">1986</p>
+        <h2 class="section-title">Backpropagation: how a network learns</h2>
+        <p>The obstacle <em>Perceptrons</em> identified in 1969 was not that multi-layer networks
+          were too weak. It was that nobody knew how to train them. If the final answer is wrong, and
+          the error passed through three hidden layers of thousands of connections on its way out,
+          which connections do you blame?</p>
+        <p>In 1986 <strong>David Rumelhart, Geoffrey Hinton and Ronald Williams</strong> published a
+          paper in <em>Nature</em> that made the answer practical. (The mathematics had appeared
+          earlier &mdash; Seppo Linnainmaa in 1970, Paul Werbos in 1974 &mdash; but this is the paper
+          that convinced the field.)</p>
+
+        <h3>The idea, without the calculus</h3>
+        <ol>
+          <li><strong>Guess.</strong> Push an example through the network with whatever weights it
+            currently has. Out comes an answer &mdash; at first, garbage.</li>
+          <li><strong>Measure.</strong> Compare the answer to the correct one. The gap is the
+            <em>loss</em> &mdash; a single number saying how wrong you were.</li>
+          <li><strong>Assign blame backwards.</strong> Starting at the output and working back layer
+            by layer, calculate how much each weight contributed to that error. This is just the
+            chain rule from calculus, applied mechanically.</li>
+          <li><strong>Nudge.</strong> Move every weight a small step in the direction that would have
+            reduced the error.</li>
+          <li><strong>Repeat</strong> a few million times.</li>
+        </ol>
+        <p>That is it. No understanding, no insight, no rules &mdash; just an enormous number of
+          tiny corrections, each one making the network slightly less wrong. Every neural network
+          in existence, including the one behind whatever chatbot you last used, is trained by this
+          procedure. Only the scale has changed.</p>
+
+        <div class="callout">
+          <h4>Why it took twenty-five more years to matter</h4>
+          <p>Backpropagation worked in 1986 &mdash; on small networks, small datasets and the
+            computers of 1986. Deep networks trained on those machines were slow, unstable and no
+            better than simpler methods. The algorithm was not the bottleneck. <strong>Data and
+            hardware were</strong>, and neither arrived until the late 2000s.</p>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:0">
+        <div class="figure-body">
+          <svg viewBox="0 0 440 340" role="img" aria-labelledby="gd-title gd-desc" style="width:100%;height:auto">
+            <title id="gd-title">Gradient descent</title>
+            <desc id="gd-desc">A curved valley representing error. A ball starts high on the left and takes successively smaller steps downhill toward the lowest point, labelled best weights.</desc>
+            <g font-family="Helvetica,Arial">
+              <line x1="55" y1="285" x2="415" y2="285" stroke="#0A0A0A" stroke-width="2"></line>
+              <line x1="55" y1="30" x2="55" y2="285" stroke="#0A0A0A" stroke-width="2"></line>
+              <text x="235" y="312" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#5C5C5C">WEIGHT VALUE &rarr;</text>
+              <text x="22" y="158" font-size="11.5" font-weight="bold" fill="#5C5C5C" transform="rotate(-90 22 158)" text-anchor="middle">ERROR &rarr;</text>
+
+              <path d="M75 55 Q 150 65 200 190 Q 235 268 275 232 Q 320 185 400 70"
+                    fill="none" stroke="#0A0A0A" stroke-width="3"></path>
+
+              <circle cx="88" cy="59" r="9" fill="#FF0000"></circle>
+              <circle cx="130" cy="83" r="8" fill="#FF0000" opacity=".78"></circle>
+              <circle cx="168" cy="135" r="8" fill="#FF0000" opacity=".62"></circle>
+              <circle cx="197" cy="185" r="8" fill="#FF0000" opacity=".5"></circle>
+              <circle cx="222" cy="230" r="8" fill="#FF0000" opacity=".42"></circle>
+              <circle cx="243" cy="255" r="8" fill="#FF0000" opacity=".36"></circle>
+              <circle cx="256" cy="262" r="8" fill="#FF0000" opacity=".32"></circle>
+
+              <text x="100" y="44" font-size="11.5" fill="#0A0A0A">start: random weights</text>
+              <line x1="256" y1="272" x2="256" y2="285" stroke="#FF0000" stroke-width="2" stroke-dasharray="3 3"></line>
+              <text x="268" y="282" font-size="11.5" font-weight="bold" fill="#FF0000">best weights found</text>
+
+              <path d="M330 120 l 0 -30" stroke="#8C8C8C" stroke-width="1.5"></path>
+              <text x="336" y="86" font-size="11" fill="#8C8C8C">steep slope &rarr;</text>
+              <text x="336" y="101" font-size="11" fill="#8C8C8C">big step</text>
+              <text x="120" y="240" font-size="11" fill="#8C8C8C">shallow slope &rarr; small step</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Downhill, blindly.</b> The network cannot see the shape of this valley. At each
+          point it can only feel which way is downhill and step that way. Millions of steps later it
+          is somewhere low &mdash; not necessarily the lowest point, but low enough.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">1988 &ndash; 2001</p>
+      <h2 class="section-title">The toolbox that ran the world before deep learning</h2>
+      <p class="lede" style="margin-bottom:2.5rem">Neural networks were only one branch. Several
+        others worked better at the time, and several are still the right choice today.</p>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <span class="card-num">1988 &mdash; Judea Pearl</span>
+          <h3>Bayesian networks</h3>
+          <p>A way to represent <em>uncertain</em> knowledge as a graph of causes and effects, and to
+            update all your beliefs correctly when a new fact arrives. Pearl gave AI a principled
+            language for reasoning under uncertainty &mdash; something logic could not do &mdash; and
+            later, a mathematics of causation that lets you distinguish &ldquo;these two things occur
+            together&rdquo; from &ldquo;this one causes that one&rdquo;. He received the Turing Award
+            in 2011.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1989 &mdash; Yann LeCun</span>
+          <h3>Convolutional networks</h3>
+          <p>LeCun&rsquo;s <strong>LeNet</strong> read handwritten digits by exploiting a fact about
+            images: a shape means the same thing wherever it appears. So instead of learning every
+            position separately, the network learns a small set of feature detectors and slides them
+            across the whole image. By the late 1990s, systems built on this were reading a large
+            share of the cheques processed in the United States. This architecture would win
+            everything in 2012.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1995 &mdash; Cortes &amp; Vapnik</span>
+          <h3>Support vector machines</h3>
+          <p>A method that finds the dividing line with the widest possible margin between two
+            classes, and &mdash; through the &ldquo;kernel trick&rdquo; &mdash; can draw curved
+            boundaries by mapping the data into a higher-dimensional space without ever computing
+            the coordinates. Elegant, mathematically well-understood, and effective on modest
+            datasets. SVMs beat neural networks on most benchmarks for over a decade.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1995 &ndash; 2001 &mdash; ensembles</span>
+          <h3>Boosting and random forests</h3>
+          <p>Instead of one clever model, train hundreds of mediocre ones and combine their votes.
+            <strong>AdaBoost</strong> trains each new model to focus on the examples the previous ones
+            got wrong. <strong>Random forests</strong> grow many decision trees on random subsets of
+            the data. Both are fast, resistant to overfitting, and need little tuning &mdash; which is
+            why they remain the default for tabular business data to this day.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1990s &mdash; IBM and others</span>
+          <h3>Statistical language processing</h3>
+          <p>IBM&rsquo;s translation researchers threw away the grammar rules and used aligned
+            bilingual texts &mdash; famously the bilingual transcripts of the Canadian parliament
+            &mdash; to compute which phrases tend to correspond. Frederick Jelinek&rsquo;s remark that
+            &ldquo;every time I fire a linguist, the performance of the speech recogniser goes
+            up&rdquo; became the era&rsquo;s unofficial motto.</p>
+        </div>
+        <div class="card">
+          <span class="card-num">1997 &mdash; Hochreiter &amp; Schmidhuber</span>
+          <h3>LSTM</h3>
+          <p>Ordinary recurrent networks forgot: over a long sequence, the error signal shrank toward
+            zero before it could reach the early steps. The <strong>Long Short-Term Memory</strong>
+            cell added explicit gates that decide what to keep, what to discard and what to output.
+            It was largely ignored for a decade, then powered Google Translate and speech recognition
+            from roughly 2014 until transformers replaced it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="inked">
+    <div class="wrap">
+      <p class="eyebrow">The public milestones</p>
+      <h2 class="section-title">Machines beat humans, on television</h2>
+      <div class="split" style="margin-top:2rem">
+        <div class="prose">
+          <h3>1997 &mdash; Deep Blue defeats Garry Kasparov</h3>
+          <p>IBM&rsquo;s chess machine beat the reigning world champion 3&frac12;&ndash;2&frac12; in a
+            six-game match. It was a landmark, and it is worth being precise about what kind.</p>
+          <p>Deep Blue did not learn. It was custom hardware &mdash; 480 dedicated chess chips
+            &mdash; evaluating around 200 million positions per second, guided by an evaluation
+            function hand-tuned with grandmaster help. It was the <em>symbolic</em> tradition,
+            perfected and given enormous horsepower: search plus human-supplied knowledge.</p>
+          <p>The lesson people drew was double-edged. Chess had been the canonical test of
+            intelligence since the 1950s; a machine won it without anything resembling
+            understanding. That suggested either that chess was never a good test, or that
+            &ldquo;understanding&rdquo; is less necessary than we assumed. The argument continues.</p>
+
+          <h3>2011 &mdash; Watson wins <em>Jeopardy!</em></h3>
+          <p>IBM&rsquo;s Watson beat champions Ken Jennings and Brad Rutter at a quiz game built on
+            puns, wordplay and general knowledge. Unlike Deep Blue, Watson was fundamentally
+            statistical: it ran hundreds of scoring algorithms over 200 million pages of text in
+            parallel and combined their confidence scores, answering only when the combined
+            confidence cleared a threshold.</p>
+          <p>Watson&rsquo;s subsequent decade &mdash; heavily marketed for medicine, quietly scaled
+            back &mdash; became a cautionary tale about the distance between a demo and a deployment.</p>
+        </div>
+
+        <div class="tl" style="margin-top:0">
+          <div class="tl-item">
+            <span class="yr">2002</span>
+            <h3>Roomba</h3>
+            <p>The first genuinely mass-market robot &mdash; millions sold. Its intelligence was
+              minimal by design, which was exactly why it worked commercially when far cleverer
+              robots did not.</p>
+          </div>
+          <div class="tl-item">
+            <span class="yr">2004 &ndash; 2005</span>
+            <h3>The DARPA Grand Challenge</h3>
+            <p>In 2004 no self-driving vehicle finished the desert course; the best managed 11 km of
+              240. In 2005 five vehicles finished, led by Stanford&rsquo;s <em>Stanley</em>, which
+              used machine learning to interpret its laser scans. The entire autonomous-vehicle
+              industry traces to those two races.</p>
+          </div>
+          <div class="tl-item">
+            <span class="yr">2006</span>
+            <h3>Hinton renames the field</h3>
+            <p>A paper on layer-by-layer pre-training of &ldquo;deep belief networks&rdquo; showed
+              that deep networks could be trained after all. Hinton deliberately used the term
+              <strong>deep learning</strong> &mdash; partly to signal a real advance, partly because
+              &ldquo;neural networks&rdquo; still made reviewers hostile.</p>
+          </div>
+          <div class="tl-item">
+            <span class="yr">2009</span>
+            <h3>ImageNet</h3>
+            <p>Fei-Fei Li&rsquo;s team published a labelled dataset of over 14 million images across
+              22,000 categories, built with crowdsourced human labelling. It was an unfashionable
+              project &mdash; the field valued algorithms, not datasets. It turned out to be the
+              missing ingredient.</p>
+          </div>
+          <div class="tl-item" style="padding-bottom:0">
+            <span class="yr">2011</span>
+            <h3>Siri ships</h3>
+            <p>Speech recognition, previously a research embarrassment, arrived in a phone in
+              everyone&rsquo;s pocket &mdash; built on statistical acoustic models rather than
+              linguistic rules.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <h2 class="section-title">Three things arrived at once</h2>
+      <p>By around 2010, everything needed for the next chapter was in place &mdash; and none of it
+        was a new idea. All three were quantities.</p>
+      <ul>
+        <li><strong>Data.</strong> The web produced labelled examples at a scale nobody could have
+          assembled deliberately: billions of captioned photographs, tagged videos, translated
+          documents, product reviews with star ratings. ImageNet turned some of it into a benchmark.</li>
+        <li><strong>Compute.</strong> Graphics cards, built to render game worlds, turned out to be
+          almost perfectly suited to the matrix multiplications that neural networks are made of
+          &mdash; thousands of simple operations in parallel. A GPU could train a network tens of
+          times faster than a CPU, for the price of a games console.</li>
+        <li><strong>Algorithms that were already waiting.</strong> Backpropagation from 1986,
+          convolutional networks from 1989, LSTM from 1997. Nothing new was needed. They just had to
+          be run at a scale their inventors could not afford.</li>
+      </ul>
+      <div class="note">
+        <p><strong>The uncomfortable pattern.</strong> The single biggest driver of progress in AI
+          has not been better ideas. It has been more compute applied to old ideas. Richard Sutton
+          named this <em>the bitter lesson</em>: over seventy years, general methods that scale with
+          computation have consistently beaten methods that encode human insight &mdash; and
+          researchers have consistently found this unwelcome.</p>
+      </div>
+    </div>
+  </section>
